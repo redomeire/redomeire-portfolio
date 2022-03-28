@@ -1,37 +1,56 @@
 import * as React from 'react';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { ThemeProvider } from '@mui/material/styles';
-import { theme } from './Theme';
-import "./style/Navbar.css"
+import "./style/Navbar.css";
+import "../components/style/GLobal.css";
 import { NavbarData } from './NavbarData';
-import { Box, Button } from '@mui/material';
+import { Box, Button, IconButton, Stack } from '@mui/material';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Avatar from "../assets/avatar_logo.png";
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
 
 const Navbar = () => {
   const navigate = useNavigate();
-//   const [isClicked, setIsClicked] = React.useState(false);
   const location = useLocation();
   console.log(location.pathname);
   return (
-      <ThemeProvider theme={theme}>
           <div className='Navbar'>
-                <Toolbar sx={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100%"}} style={{padding: "0"}}>
-                    <div style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%"}}>
+                <Toolbar sx={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}} style={{padding: "0", overflow: "auto"}}>
+                    <div style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%", height: "100vh"}}>
+                    <Stack className="hero-button" variant="text" sx={{marginTop: 8}}>
+                        <img className="avatar-logo" src={Avatar} alt="avatar" width="80"/>
+                        <Button variant="text" sx={{marginTop: 2}}>
+                            <Typography color="white" variant="h5" sx={{fontWeight: "bold", textTransform : "capitalize"}}  onClick={() => {
+                            navigate("/");
+                        }}>Redomeire</Typography>
+                        </Button>
+                        <div className="social-media" style={{marginBottom : "20px"}}>
+                            <IconButton color="primary" onClick={() => { window.location.replace("https://instagram.com/red_o_21") }}>
+                                <InstagramIcon/>
+                            </IconButton>
+                            <IconButton color="primary" onClick={() => { window.location.replace("https://www.facebook.com/redo.meire") }}>
+                                <FacebookIcon/>
+                            </IconButton>
+                        </div>
+                    </Stack>
                     {
                         NavbarData.map((item) => {
+                            const address = location.pathname === item.link;
                             return(
-                                <Button color="secondary" variant={location.pathname === item.link ? "outlined" : "primary" } style={{width: "100%", height: "100%"}} onClick={() => {
+                                <Button variant={address ? "contained" : "secondary"} 
+                                color={address ? "secondary" : "primary"}
+                                style={{width: "100%", height: "100%", boxShadow: "none", borderRadius: 0}} onClick={() => {
                                     // setIsClicked(true);
                                     navigate(`${item.link}`);
                                 }}>
                                     <div style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "start", width: "100%"}}>
-                                        <div style={{marginRight: "20px", color: "white"}}>
+                                        <div style={{marginRight: "20px"}} className={location.pathname === item.link ? "color-primary-dark" : "color-white"}>
                                             {item.icon}
                                         </div>
                                         <div>
                                             <Box component="span" sx={{p: 2}}>
-                                                <Typography color="secondary">{item.title}</Typography>
+                                                <Typography style={{textTransform: "capitalize"}} className={location.pathname === item.link ? "color-primary-dark" : "color-white"}>{item.title}</Typography>
                                             </Box>
                                         </div>
                                     </div>
@@ -42,7 +61,6 @@ const Navbar = () => {
                     </div>
                 </Toolbar>
           </div>
-    </ThemeProvider>
   );
 };
 export default Navbar;

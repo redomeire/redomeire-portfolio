@@ -1,6 +1,7 @@
 import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import PersonIcon from '@mui/icons-material/Person';
+import HomeWorkIcon from '@mui/icons-material/HomeWork';
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 
 export const NavbarData = [
@@ -10,14 +11,14 @@ export const NavbarData = [
         link: "/",
     },
     {
-        title: "About",
-        icon : <InfoIcon/>,
-        link: "/about",
-    },
-    {
         title: "My Profile",
         icon : <PersonIcon/>,
         link: "/profile",
+    },
+    {
+        title: "My Project",
+        icon : <HomeWorkIcon/>,
+        link: "/project",
     },
     {
         title: "Contact",

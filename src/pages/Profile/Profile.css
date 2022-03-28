@@ -1,0 +1,14 @@
+.container {
+    width: 100%;
+    padding: 20px;
+}
+
+.item-title {
+    display : flex;
+}
+
+.random-shape {
+    z-index: -1;
+    position : fixed;
+    top: 50vh;
+}
