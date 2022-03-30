@@ -13,7 +13,7 @@ import Navbar from "../../components/Navbar";
 import wavingHand from "../../assets/noto-v1_waving-hand.svg";
 import { darkTheme, theme } from "../../components/Theme";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import SendIcon from "@mui/icons-material/Send";
+import Form from "../../components/Form";
 
 function Contact() {
   return (
@@ -52,64 +52,7 @@ function Contact() {
           </div>
         </div>
         <ThemeProvider theme={darkTheme}>
-          <form
-            style={{ display: "flex", flexDirection: "column", width: "90%" }}
-          >
-            <div
-              className="fullname"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                marginBottom: "20px",
-              }}
-            >
-              <TextField
-                label="Name"
-                id="filled-size-normal"
-                variant="outlined"
-              />
-            </div>
-            <div
-              className="email"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                marginBottom: "20px",
-              }}
-            >
-              <TextField
-                label="Email"
-                id="filled-size-normal"
-                variant="outlined"
-                type="email"
-              />
-            </div>
-            <div
-              className="fullname"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                marginBottom: "20px",
-              }}
-            >
-              <TextField
-                id="outlined-multiline-flexible"
-                label="Message"
-                multiline
-                maxRows={4}
-                minRows={3}
-                variant="outlined"
-              />
-            </div>
-            <Button
-              style={{ width: "10%" }}
-              type="submit"
-              variant="contained"
-              endIcon={<SendIcon />}
-            >
-              Send
-            </Button>
-          </form>
+           <Form/>
         </ThemeProvider>
       </div>
     </div>
