@@ -1,0 +1,24 @@
+.content {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+}
+
+.item-title {
+    width: 50%;
+}
+
+.item-image {
+    margin-right: 20px;
+}
+
+@media screen and (max-device-width: 1140px){
+    .content {
+        flex-direction: column-reverse;
+    }
+
+    .item-title {
+        width: 100%;
+    }
+}

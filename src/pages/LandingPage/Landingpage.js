@@ -16,7 +16,7 @@ function Landingpage(){
             <div className="container text-left color-white">
                 <div className="title-section">
                     <Typography variant="h2" sx={{marginTop: "50px", fontWeight: "bold", marginRight: 2}} className="landing-page-title fs-64">Hi, I Am Redo</Typography>
-                    <Tooltip title="Hello everyone!!" placement="right">
+                    <Tooltip title="Hello everyone!!" placement="right" arrow>
                         <img src={wavingHand} alt="waving hand"/>
                     </Tooltip>
                 </div>
