@@ -12,24 +12,22 @@ import ButtonAppBar from "../../components/AppBar";
 
 function Contact() {
   return (
-    <div className="bg-color-background" style={{ display: "flex" }}>
+    <div className="bg-color-background">
       <Navbar />
       <div className="content-container">
         <ButtonAppBar/>
         <div className="contact-container text-left color-white">
-          <div className="container-2">
+          <div style={{display: "flex", flexDirection: "column", padding: "20px"}}>
           <div className="title-section">
             <Typography
-              variant="h2"
               sx={{ marginTop: "50px", fontWeight: "bold", marginRight: 2 }}
-              className="landing-page-title fs-64"
+              className="contact-page-title"
             >
               Contact Me
             </Typography>
           </div>
           <p
-            className="color-secondary-dark fs-24"
-            style={{ marginBottom: "50px" }}
+            className="color-secondary-dark contact-page-subtitle"
           >
             Feel free to contact me whenever you want
           </p>

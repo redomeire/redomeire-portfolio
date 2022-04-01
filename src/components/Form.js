@@ -2,6 +2,7 @@ import { Alert, Button, Collapse, IconButton, TextField } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import CloseIcon from '@mui/icons-material/Close';
 import LoadingButton from '@mui/lab/LoadingButton';
+import "./style/Form.css";
 import { useState } from "react";
 
 function Form(){
@@ -38,12 +39,12 @@ const [isAlreadyFetch, setAlreadyFetch] = useState(false);
 const scriptURL = 'https://script.google.com/macros/s/AKfycbwfFTX6d9H7sz1yK3fRYkcwqBxSyY6KOf5xPFjXF0jyORcrGrxaWuOZzQgW1Nnc_cMJ-Q/exec';
 
     return(
-        <div>
-            <div className="notification" style={{width: "90%"}}>
+        <div style={{width: "100%"}}>
+            <div className="notification">
                 {isAlreadyFetch === true ? <CreateAlert/> : ""}
             </div>
             <form className="form-contact" name="submit-to-google-sheet"
-            style={{ display: "flex", flexDirection: "column", width: "90%" }}
+            style={{ display: "flex", flexDirection: "column"}}
             onSubmit={(e) => {
                 e.preventDefault();
                 fetch(scriptURL, {
@@ -118,9 +119,9 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbwfFTX6d9H7sz1yK3fRYk
               />
             </div>
             <Button
-              style={{ width: "20%" }}
               type="submit"
               variant="contained"
+              className="button-send"
               endIcon={<SendIcon />}
             >
               Send

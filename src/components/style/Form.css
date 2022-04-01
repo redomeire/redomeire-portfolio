@@ -2,8 +2,16 @@
     width: 90%;
 }
 
+.form-contact .button-send {
+    width: 20%;
+}
+
 @media screen and (max-device-width: 1000px){
     .notification {
         width : 100%;
+    }
+
+    .form-contact .button-send {
+        width: 100%;
     }
 }
