@@ -8,6 +8,8 @@ import ForumIcon from '@mui/icons-material/Forum';
 import { useNavigate } from "react-router-dom";
 import AnimatedShape from "../../assets/AnimatedShape1.svg";
 import ButtonAppBar from "../../components/AppBar";
+import { ThemeProvider } from "@mui/system";
+import { darkTheme, theme } from "../../components/Theme";
 
 function Landingpage(){
     const navigate = useNavigate();
@@ -38,9 +40,11 @@ function Landingpage(){
                         </div>
                         <p className="color-secondary-dark">I am willing to make the web look attractive and good. I am a person who enjoys working in a team because of the many positive feedbacks that go into it. </p>
                         <p className="color-secondary-dark" style={{marginBottom : "50px"}}>Please consider to reach me via the contact form at the bottom of the page if you want! </p>
-                        <Button variant="contained" endIcon={<ForumIcon />} onClick={() => { navigate("/contact") }}>
-                            Contact Me
-                        </Button>
+                        <ThemeProvider theme={darkTheme}>
+                            <Button variant="contained" endIcon={<ForumIcon />} onClick={() => { navigate("/contact") }}>
+                                Contact Me
+                            </Button>
+                        </ThemeProvider>
 
                     {/* <img className="random-shape" src={AnimatedShape} alt="random shape"></img> */}
                     </div>

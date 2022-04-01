@@ -76,6 +76,7 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbwfFTX6d9H7sz1yK3fRYk
                 name="nama"
                 variant="outlined"
                 type="text"
+                style={{zIndex: "1"}}
                 required
               />
             </div>
@@ -117,7 +118,7 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbwfFTX6d9H7sz1yK3fRYk
               />
             </div>
             <Button
-              style={{ width: "10%" }}
+              style={{ width: "20%" }}
               type="submit"
               variant="contained"
               endIcon={<SendIcon />}

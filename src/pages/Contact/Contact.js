@@ -1,16 +1,9 @@
 import {
-  Button,
-  Card,
   IconButton,
-  Paper,
-  Stack,
-  TextField,
-  Tooltip,
   Typography,
 } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import Navbar from "../../components/Navbar";
-import wavingHand from "../../assets/noto-v1_waving-hand.svg";
 import "./Contact.css";
 import { darkTheme, theme } from "../../components/Theme";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
