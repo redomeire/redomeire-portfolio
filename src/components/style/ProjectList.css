@@ -1,0 +1,9 @@
+.card-image {
+    transition: ease 0.3s;
+}
+
+.card-image:hover {
+    -webkit-filter: brightness(75%);
+    filter: brightness(75%);
+}
+

@@ -1,6 +1,7 @@
 import { Alert, Button, Collapse, IconButton, TextField } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import CloseIcon from '@mui/icons-material/Close';
+import LoadingButton from '@mui/lab/LoadingButton';
 import { useState } from "react";
 
 function Form(){
@@ -38,7 +39,7 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbwfFTX6d9H7sz1yK3fRYk
 
     return(
         <div>
-            <div className="notification">
+            <div className="notification" style={{width: "90%"}}>
                 {isAlreadyFetch === true ? <CreateAlert/> : ""}
             </div>
             <form className="form-contact" name="submit-to-google-sheet"
@@ -75,6 +76,7 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbwfFTX6d9H7sz1yK3fRYk
                 name="nama"
                 variant="outlined"
                 type="text"
+                required
               />
             </div>
             <div
@@ -91,6 +93,7 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbwfFTX6d9H7sz1yK3fRYk
                 name="email"
                 variant="outlined"
                 type="email"
+                required
               />
             </div>
             <div
@@ -110,6 +113,7 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbwfFTX6d9H7sz1yK3fRYk
                 maxRows={4}
                 minRows={3}
                 variant="outlined"
+                required
               />
             </div>
             <Button
@@ -120,6 +124,14 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbwfFTX6d9H7sz1yK3fRYk
             >
               Send
             </Button>
+            {/* <LoadingButton
+                style={{width: "20%"}}
+                loading
+                loadingPosition="start"
+                variant="outlined"
+                >
+                Loading...
+            </LoadingButton> */}
           </form>
         </div>
     );

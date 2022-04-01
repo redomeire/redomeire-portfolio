@@ -1,11 +1,18 @@
 .container {
     width: 100%;
+    /* padding: 20px; */
+    /* margin-left: 350px; */
+}
+
+.container-2 {
     padding: 20px;
-    margin-left: 350px;
+}
+
+.content-container {
+    margin-left: 300px;
 }
 
 .landing-page-title {
-    margin-top: 50px;
     text-align: left;
 }
 
@@ -15,6 +22,7 @@
 
 .title-section {
     display: flex;
+    margin-top: 20px;
 }
 
 .about-title {
@@ -36,4 +44,22 @@ p {
     right: 0;
     top: 80vh;
     overflow: hidden;
+}
+
+.waving-hand {
+    width: 30px;
+}
+
+@media screen and (max-device-width: 1000px){
+    .container {
+        margin-left: 0;
+    }
+
+    .content-container {
+        margin-left: 0;
+    }
+
+    .title-section {
+        margin-top: 0;
+    }
 }

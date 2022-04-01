@@ -6,10 +6,12 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { ThemeProvider } from '@mui/system';
 import { darkTheme } from './Theme';
+import "./style/ProjectList.css";
 import AmbisUtbkMockup from "../assets/Ambis_utbk_mockup.svg";
 import InfoCovidMockup from "../assets/infocovid_mockup.svg";
 import HTMLLogo from "../assets/html-5-logo-svgrepo-com.svg";
 import CSSLogo from "../assets/CSS3_logo_and_wordmark.svg";
+import BookFinderMockup from "../assets/bookfinder_mockup.svg";
 
 export const projectList = [
     {
@@ -21,11 +23,11 @@ export const projectList = [
         technology: [
             {
                 name: "HTML",
-                logo: <img src={HTMLLogo} alt="html" height="30"></img>,
+                logo: <img src={HTMLLogo} alt="html" height="30" loading='lazy'></img>,
             }, 
             {
                 name: "CSS",
-                logo: <img src={CSSLogo} alt="html" height="30"></img>,
+                logo: <img src={CSSLogo} alt="html" height="30" loading='lazy'></img>,
             }, 
             {
                 name: "Javascript",
@@ -42,7 +44,7 @@ export const projectList = [
         technology: [
             {
                 name: "HTML",
-                logo: <img src={HTMLLogo} alt="html" width="30"></img>,
+                logo: <img src={HTMLLogo} alt="html" width="30" loading='lazy'></img>,
             }, 
             {
                 name: "SASS",
@@ -51,6 +53,26 @@ export const projectList = [
             {
                 name: "Javascript",
                 logo: "Javascript",
+            }
+        ]
+    }, {
+        id: 2,
+        title: "Bookfinder App",
+        description: "This website could find any technology books that we want. Also, the website provide details information such as book title, author, and the link to redirect it",
+        image: BookFinderMockup,
+        link: "https://bookfinder-vue-app.vercel.app",
+        technology: [
+            {
+                name: "HTML",
+                logo: <img src={HTMLLogo} alt="html" width="30" loading='lazy'></img>,
+            }, 
+            {
+                name: "CSS",
+                logo: "CSS",
+            }, 
+            {
+                name: "Vue",
+                logo: "Vue",
             }
         ]
     }, 
@@ -69,6 +91,7 @@ function ProjectList(){
                                 height="500"
                                 image={item.image}
                                 alt="green iguana"
+                                className="card-image"
                             />
                             <CardContent>
                                 <Typography gutterBottom variant="h6" component="div">
@@ -83,14 +106,14 @@ function ProjectList(){
                                     {
                                         item.technology.map((item) => (
                                         <div>
-                                            <Button variant="outlined" color="info" startIcon={item.logo} style={{marginRight: "10px"}}>{item.name}</Button>
+                                            <Button variant="text" color="info" style={{marginRight: "10px"}}>{item.logo}</Button>
                                         </div>
                                         ))
                                     }
                                 </div>
                                 <div className="visit-link" style={{marginRight: "10px"}}>
                                     <Button variant="contained">
-                                        <a href={item.link} style={{textDecoration: "none", color: "black"}}>Visit</a>
+                                        <a href={item.link} style={{textDecoration: "none", color: "black"}}target="_blank" rel="noreferrer">Visit</a>
                                     </Button>
                                 </div>
                             </CardActions>

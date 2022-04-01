@@ -13,9 +13,9 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location.pathname);
+
   return (
-          <div className='Navbar'>
+          <div className='Navbar' id="Navbar">
                 <Toolbar sx={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}} style={{padding: "0", overflow: "auto"}}>
                     <div style={{display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", width: "100%", height: "100vh"}}>
                     <Stack className="hero-button" variant="text" sx={{marginTop: 8}}>
@@ -44,7 +44,7 @@ const Navbar = () => {
                                     // setIsClicked(true);
                                     navigate(`${item.link}`);
                                 }}>
-                                    <div style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "start", width: "100%"}}>
+                                    <div className="item-container" style={{display: "flex", flexDirection: "row", alignItems: "center", width: "100%"}}>
                                         <div style={{marginRight: "20px"}} className={location.pathname === item.link ? "color-primary-dark" : "color-white"}>
                                             {item.icon}
                                         </div>

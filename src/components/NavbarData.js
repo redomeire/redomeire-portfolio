@@ -1,5 +1,4 @@
 import HomeIcon from '@mui/icons-material/Home';
-import InfoIcon from '@mui/icons-material/Info';
 import PersonIcon from '@mui/icons-material/Person';
 import HomeWorkIcon from '@mui/icons-material/HomeWork';
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';

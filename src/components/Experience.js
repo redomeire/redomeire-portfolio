@@ -42,9 +42,9 @@ function Experience(){
 
     return(
         <ThemeProvider theme={darkTheme}>
-        <div style={{marginLeft: "30px"}}>
+        <div className="experience-container">
             {experience.map((item) => (
-                <Card style={{width: "80%", marginBottom : "10px"}}>
+                <Card className="data-experience-card" style={{marginBottom : "10px"}}>
                     <Accordion color="secondary" sx={{background: "rgba(5, 105, 204, 0.16)", backdropFilter: "blur(20px)"}}>
                         <AccordionSummary
                          expandIcon={<ExpandMoreIcon/>}

@@ -11,9 +11,9 @@ function Project(){
             <Navbar/>
             <div className="container text-left color-white">
             <div className="title-section">
-                    <Typography variant="h2" sx={{marginTop: "50px", fontWeight: "bold", marginRight: 2}} className="landing-page-title fs-64">Hi, I Am Redo</Typography>
+                    <Typography variant="h2" sx={{marginTop: "50px", fontWeight: "bold", marginRight: 2}} className="landing-page-title fs-64">My Project</Typography>
                 </div>
-                <p className="color-secondary-dark fs-24" style={{marginBottom: "50px"}}>I'm a first year student at University of Brawijaya that interested in web technologies.</p>
+                <p className="color-secondary-dark fs-24" style={{marginBottom: "50px"}}>Where all my project lies</p>
                 
                 <div id="about">
                     <div className="about-title">

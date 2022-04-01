@@ -1,0 +1,9 @@
+.notification {
+    width: 90%;
+}
+
+@media screen and (max-device-width: 1000px){
+    .notification {
+        width : 100%;
+    }
+}
