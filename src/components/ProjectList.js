@@ -55,27 +55,29 @@ export const projectList = [
                 logo: "Javascript",
             }
         ]
-    }, {
-        id: 2,
-        title: "Bookfinder App",
-        description: "This website could find any technology books that we want. Also, the website provide details information such as book title, author, and the link to redirect it",
-        image: BookFinderMockup,
-        link: "https://bookfinder-vue-app.vercel.app",
-        technology: [
-            {
-                name: "HTML",
-                logo: <img src={HTMLLogo} alt="html" width="30" loading='lazy'></img>,
-            }, 
-            {
-                name: "CSS",
-                logo: "CSS",
-            }, 
-            {
-                name: "Vue",
-                logo: "Vue",
-            }
-        ]
     }, 
+    
+    // {
+    //     id: 2,
+    //     title: "Bookfinder App",
+    //     description: "This website could find any technology books that we want. Also, the website provide details information such as book title, author, and the link to redirect it",
+    //     image: BookFinderMockup,
+    //     link: "https://bookfinder-vue-app.vercel.app",
+    //     technology: [
+    //         {
+    //             name: "HTML",
+    //             logo: <img src={HTMLLogo} alt="html" width="30" loading='lazy'></img>,
+    //         }, 
+    //         {
+    //             name: "CSS",
+    //             logo: "CSS",
+    //         }, 
+    //         {
+    //             name: "Vue",
+    //             logo: "Vue",
+    //         }
+    //     ]
+    // }, 
 ]
 
 function ProjectList(){

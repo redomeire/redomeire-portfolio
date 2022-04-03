@@ -26,7 +26,7 @@ function Landingpage(){
                                 <img className="waving-hand" src={wavingHand} alt="waving hand"/>
                             </Tooltip> */}
                         </div>
-                        <p className="color-secondary-dark fs-24" style={{marginBottom: "50px", width: "100%"}}>I'm a first year student at University of Brawijaya that interested in web technologies.</p>
+                        <p className="color-secondary-dark landing-page-subtitle" style={{marginBottom: "50px", width: "100%"}}>I'm a first year student at University of Brawijaya that interested in web technologies.</p>
                         <div id="about">
                             <div className="about-title">
                                 <h2># About</h2>

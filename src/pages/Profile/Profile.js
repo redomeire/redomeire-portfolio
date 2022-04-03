@@ -16,12 +16,12 @@ import ButtonAppBar from "../../components/AppBar";
 
 function Profile(){
     return(
-        <div className="bg-color-background" style={{display : "flex"}}>
+        <div className="bg-color-background profile" style={{display : "flex"}}>
             <Navbar/>
             <div className="content-container">
                 <ButtonAppBar/>
                 <div className="profile-container text-left color-white">
-                    <div className="container-2">
+                    <div className="container-profile-2">
                         <div className="title-section">
                             <Typography variant="h2" sx={{marginTop: "50px", fontWeight: "bold", marginRight: 2}} className="landing-page-title fs-64">Let's See My Journey</Typography>
                             {/* <Tooltip title="Hello everyone!!" placement="right">

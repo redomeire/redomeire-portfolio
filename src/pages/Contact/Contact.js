@@ -17,7 +17,7 @@ function Contact() {
       <div className="content-container">
         <ButtonAppBar/>
         <div className="contact-container text-left color-white">
-          <div style={{display: "flex", flexDirection: "column", padding: "20px"}}>
+          <div className="pad-40"  style={{display: "flex", flexDirection: "column"}}>
           <div className="title-section">
             <Typography
               sx={{ marginTop: "50px", fontWeight: "bold", marginRight: 2 }}

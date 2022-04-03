@@ -46,7 +46,7 @@ function WhatIDo() {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <Box sx={{ maxWidth: 400, flexGrow: 1, marginLeft: 4}}>
+      <Box sx={{ maxWidth: 400, flexGrow: 1}}>
         <Paper
           square
           elevation={0}

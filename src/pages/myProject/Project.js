@@ -4,12 +4,16 @@ import Navbar from "../../components/Navbar";
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import { theme } from "../../components/Theme";
 import ProjectList from "../../components/ProjectList";
+import ButtonAppBar from "../../components/AppBar";
+import "./Project.css";
 
 function Project(){
     return(
-        <div className="bg-color-background" style={{display : "flex"}}>
+        <div className="bg-color-background project">
             <Navbar/>
-            <div className="container text-left color-white">
+            <div className="content-container">
+                <ButtonAppBar/>
+            <div className="project-container text-left color-white">
             <div className="title-section">
                     <Typography variant="h2" sx={{marginTop: "50px", fontWeight: "bold", marginRight: 2}} className="landing-page-title fs-64">My Project</Typography>
                 </div>
@@ -32,6 +36,7 @@ function Project(){
                         <ProjectList/>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     );

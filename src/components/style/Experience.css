@@ -13,10 +13,6 @@
     margin-right: 20px;
 }
 
-.experience-container {
-    margin-left: 30px;
-}
-
 .data-experience-card {
     width: 80%; 
 }
@@ -28,6 +24,7 @@
 
     .item-title {
         width: 100%;
+        margin-top : 20px;
     }
 
     .experience-container {

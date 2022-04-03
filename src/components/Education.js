@@ -45,7 +45,7 @@ function Education(){
 
     return(
       <ThemeProvider theme={darkTheme}>
-          <Box sx={{ maxWidth: 400, marginLeft: 4 }}>
+          <Box>
           <Stepper activeStep={activeStep} orientation="vertical">
             {steps.map((step, index) => (
               <Step key={step.label}>
