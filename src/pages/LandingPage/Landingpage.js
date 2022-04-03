@@ -1,15 +1,13 @@
-import { Alert, Button, IconButton, Tooltip, Typography } from "@mui/material";
+import { Button, IconButton, Typography } from "@mui/material";
 import Navbar from "../../components/Navbar";
 import "../../components/style/GLobal.css";
 import "./Landingpage.css";
-import wavingHand from "../../assets/noto-v1_waving-hand.svg";
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ForumIcon from '@mui/icons-material/Forum';
 import { useNavigate } from "react-router-dom";
-import AnimatedShape from "../../assets/AnimatedShape1.svg";
 import ButtonAppBar from "../../components/AppBar";
 import { ThemeProvider } from "@mui/system";
-import { darkTheme, theme } from "../../components/Theme";
+import { darkTheme } from "../../components/Theme";
 
 function Landingpage(){
     const navigate = useNavigate();

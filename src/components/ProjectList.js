@@ -11,7 +11,7 @@ import AmbisUtbkMockup from "../assets/Ambis_utbk_mockup.svg";
 import InfoCovidMockup from "../assets/infocovid_mockup.svg";
 import HTMLLogo from "../assets/html-5-logo-svgrepo-com.svg";
 import CSSLogo from "../assets/CSS3_logo_and_wordmark.svg";
-import BookFinderMockup from "../assets/bookfinder_mockup.svg";
+// import BookFinderMockup from "../assets/bookfinder_mockup.svg";
 
 export const projectList = [
     {

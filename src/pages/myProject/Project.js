@@ -1,8 +1,6 @@
 import { IconButton, Typography } from "@mui/material";
-import { ThemeProvider } from "@mui/material/styles";
 import Navbar from "../../components/Navbar";
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import { theme } from "../../components/Theme";
 import ProjectList from "../../components/ProjectList";
 import ButtonAppBar from "../../components/AppBar";
 import "./Project.css";

@@ -1,15 +1,9 @@
-import { IconButton, Tooltip, Typography } from "@mui/material";
-import { ThemeProvider } from "@mui/material/styles";
+import { IconButton, Typography } from "@mui/material";
 import Navbar from "../../components/Navbar";
 import "../Profile/Profile.css";
-import { theme } from "../../components/Theme";
-import AnimatedShape from "../../assets/AnimatedShape.svg";
-import wavingHand from "../../assets/noto-v1_waving-hand.svg";
 import Education from "../../components/Education";
 import SchoolIcon from '@mui/icons-material/School';
 import WhatIDo from "../../components/WhatIDo";
-import DnsIcon from '@mui/icons-material/Dns';
-import TechStack from "../../components/TechStack";
 import WorkIcon from '@mui/icons-material/Work';
 import Experience from "../../components/Experience";
 import ButtonAppBar from "../../components/AppBar";

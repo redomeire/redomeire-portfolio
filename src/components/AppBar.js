@@ -3,14 +3,13 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import "./style/AppBar.css";
 import { NavbarData } from "./NavbarData";
 import { useLocation } from 'react-router-dom';
 import { ThemeProvider } from '@mui/system';
-import { theme, darkTheme } from "../components/Theme";
+import { theme } from "../components/Theme";
 
 export function handleClick(){
     const Navbar = document.getElementById("Navbar");

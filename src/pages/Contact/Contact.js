@@ -5,7 +5,7 @@ import {
 import { ThemeProvider } from "@mui/material/styles";
 import Navbar from "../../components/Navbar";
 import "./Contact.css";
-import { darkTheme, theme } from "../../components/Theme";
+import { darkTheme } from "../../components/Theme";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import Form from "../../components/Form";
 import ButtonAppBar from "../../components/AppBar";

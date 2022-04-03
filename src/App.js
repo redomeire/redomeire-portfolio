@@ -5,7 +5,7 @@ import Profile from './pages/Profile/Profile';
 import Contact from './pages/Contact/Contact';
 import Project from './pages/myProject/Project';
 import { ThemeProvider } from '@mui/material/styles';
-import { darkTheme, theme } from './components/Theme';
+import { theme } from './components/Theme';
 
 function App() {
   return (

@@ -1,6 +1,5 @@
 import { Accordion, AccordionDetails, AccordionSummary, Button, Card, CardContent, Divider, Typography } from "@mui/material";
 import { ThemeProvider } from "@mui/system";
-import { useNavigate } from "react-router-dom";
 import BCCLogo from "../assets/BCC-Logo.svg";
 import KBMTILogo from "../assets/logo-kbmti.svg";
 import AMBISUTBKLogo from "../assets/logo-ambisutbk.png";
