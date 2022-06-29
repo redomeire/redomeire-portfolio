@@ -36,7 +36,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar elevation={0} variant='outlined' position="static" sx={{backgroundColor: "white", padding: "10px 40px 10px 60px"}}>
+    <AppBar elevation={0} variant='elevation' position="static" sx={{backgroundColor: "transparent", padding: "10px 40px 10px 60px"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
@@ -116,12 +116,12 @@ const ResponsiveAppBar = () => {
             <span style={{color: "black"}}>RE</span>
             <span>DO</span>
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, mx: 3 }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }}}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'black', display: 'block', fontFamily: "Inter", mx: 3 }}
+                sx={{ my: 2, color: 'black', display: 'block', fontFamily: "Inter", textTransform: "capitalize", mx: 3 }}
               >
                 {page}
               </Button>

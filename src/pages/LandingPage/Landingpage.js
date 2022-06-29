@@ -10,13 +10,15 @@ import { ThemeProvider } from "@mui/system";
 import { darkTheme } from "../../components/Theme";
 import ResponsiveAppBar from "../../components/AppBar";
 import styled from "styled-components";
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import JumbotronVector from '../../assets/jumbotron-vector.svg';
 
 const Jumbotron = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 40px 10px 90px;
-    background-color: white;
+    // background-color: white;
     margin-top: 60px;
     @media (max-width: 1000px){
         flex-direction: column;
@@ -40,12 +42,12 @@ function Landingpage(){
                     Yet preference connection unpleasant yet melancholy but end appearance. And excellence partiality estimating terminated day everything.
                     </Typography>
                     <div className="jumbotron-buttons" style={{marginTop: "30px"}}>
-                        <Button variant="contained" sx={{backgroundColor: "#21A099", color: "white", fontSize: "10px", fontFamily: "Inter", fontWeight: "400", padding: "15px"}}>Get Started</Button>
-                        <Button variant="outlined" sx={{border: "1px solid #21A099", fontSize: "10px", fontFamily: "Inter", fontWeight: "400", mx: 2, padding: "14px", color: "#21A099"}}>Watch Video</Button>
-                        
+                        <Button variant="contained" sx={{backgroundColor: "#21A099", color: "white", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", padding: "15px", textTransform: "capitalize"}}>Get Started</Button>
+                        <Button startIcon={<PlayArrowIcon/>} variant="outlined" sx={{border: "1px solid #21A099", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", mx: 2, padding: "14px", color: "#21A099", textTransform: "capitalize"}}>Watch Video</Button>
                     </div>
                 </div>
             </Jumbotron>
+            <img style={{position: "absolute", right: "0", top: "0", zIndex: "-1", width: "40%"}} src={JumbotronVector} alt="vector"/>
         </div>
     );
 }
