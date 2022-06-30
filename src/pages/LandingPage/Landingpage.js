@@ -1,19 +1,18 @@
-import { Button, IconButton, Typography } from "@mui/material";
-import Navbar from "../../components/Navbar";
+import { Button,Typography } from "@mui/material";
 import "../../components/style/GLobal.css";
 import "./Landingpage.css";
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import ForumIcon from '@mui/icons-material/Forum';
-import { useNavigate } from "react-router-dom";
-import ButtonAppBar from "../../components/AppBar";
-import { ThemeProvider } from "@mui/system";
-import { darkTheme } from "../../components/Theme";
 import ResponsiveAppBar from "../../components/AppBar";
 import styled from "styled-components";
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import JumbotronVector from '../../assets/jumbotron-vector.svg';
+import CheckLogo from '../../assets/check-logo.svg';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import CustomCard from "../../components/CustomCard";
+import Statistics from "../../assets/statistic.svg";
+import { darkTheme } from "../../components/Theme";
+import { useState } from "react";
 
-const Jumbotron = styled.div`
+const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -25,29 +24,97 @@ const Jumbotron = styled.div`
     }
 `;
 
-function Landingpage(){
-    const navigate = useNavigate();
-    return(
+function Landingpage() {
+    const [likedUp, setLikedUp] = useState(false);
+    const [likedDown, setLikedDown] = useState(false);
+    return (
         <div>
-            <ResponsiveAppBar/>
-            <Jumbotron>
-                <div className="jumbotron-content">
-                    <Typography variant="body1" sx={{color: "#21A099", fontSize: "18px"}}>
-                        SMART PAYMENTS
+            <ResponsiveAppBar />
+            <Container>
+                <div className="container">
+                    <Typography variant="body1" sx={{ color: "#21A099", fontSize: "18px" }}>
+                        INTRODUCTION
                     </Typography>
-                    <Typography variant="h3" sx={{fontFamily: "Source Sans Pro", fontSize: "64px", marginTop: "20px", fontWeight: "700", lineHeight: "74px"}}>
-                        The Next Generation Payment <span style={{color: "#21A099"}}>Method</span>
+                    <Typography variant="h3" sx={{ fontFamily: "Source Sans Pro", fontSize: "64px", marginTop: "20px", fontWeight: "700", lineHeight: "74px" }}>
+                        Hello there ! <br /> I am <span style={{ color: "#21A099" }}>Redomeire</span>
                     </Typography>
-                    <Typography sx={{marginTop : "30px", lineHeight: "32px", color: "#828282"}}>
-                    Yet preference connection unpleasant yet melancholy but end appearance. And excellence partiality estimating terminated day everything.
+                    <Typography sx={{ marginTop: "30px", lineHeight: "32px", color: "#828282" }}>
+                        Yet preference connection unpleasant yet melancholy but end appearance. And excellence partiality estimating terminated day everything.
                     </Typography>
-                    <div className="jumbotron-buttons" style={{marginTop: "30px"}}>
-                        <Button variant="contained" sx={{backgroundColor: "#21A099", color: "white", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", padding: "15px", textTransform: "capitalize"}}>Get Started</Button>
-                        <Button startIcon={<PlayArrowIcon/>} variant="outlined" sx={{border: "1px solid #21A099", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", mx: 2, padding: "14px", color: "#21A099", textTransform: "capitalize"}}>Watch Video</Button>
+                    <div className="jumbotron-buttons" style={{ marginTop: "30px" }}>
+                        <Button variant="contained" sx={{ backgroundColor: "#21A099", color: "white", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", padding: "15px", textTransform: "capitalize" }}>Get Started</Button>
+                        <Button startIcon={<PlayArrowIcon />} variant="outlined" sx={{ border: "1px solid #21A099", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", mx: 2, padding: "14px", color: "#21A099", textTransform: "capitalize" }}>See My Project</Button>
                     </div>
                 </div>
-            </Jumbotron>
-            <img style={{position: "absolute", right: "0", top: "0", zIndex: "-1", width: "40%"}} src={JumbotronVector} alt="vector"/>
+            </Container>
+            <img style={{ position: "absolute", right: "0", top: "0", zIndex: "-1", width: "40%" }} src={JumbotronVector} alt="vector" />
+            <Container style={{ marginTop: "100px" }}>
+                <div className="content-container">
+                    <Typography variant="body1" sx={{ color: "#21A099", fontSize: "18px" }}>
+                        ABOUT
+                    </Typography>
+                    <Typography variant="h3" sx={{ fontFamily: "Inter", fontSize: "38px", marginTop: "20px", fontWeight: "500", lineHeight: "48px" }}>
+                        Getting One Step Closer to Me
+                    </Typography>
+                    <Typography sx={{ marginTop: "30px", lineHeight: "32px", color: "#828282", marginBottom: "20px" }}>
+                        Hi! My name is Redomeire or you can call me Redo. I'm currently a student in University of Brawijaya majoring Information Technology.
+
+                        For additional information, I'm really passionate in developing apps, especially on front-end side.
+                    </Typography>
+                    <Button endIcon={<ArrowForwardIcon />} sx={{ color: "#21A099" }}>
+                        Learn more about monitoring
+                    </Button>
+                </div>
+                <div className="about-box">
+                    <div className="about-card-landingPage" style={{marginTop: "-50px", marginLeft:"130px", marginBottom: "20px"}}>
+                        <CustomCard setLiked={setLikedUp} liked={likedUp} user="Jontor" opacity="0.9" thumbnailColor="red" title="GoPro unveils its foldable drone 'Karma'" body="This impressive paella is a perfect party dish and a fun meal to cook together with your guests."/>
+                    </div>
+                    <div style={{display: "flex", justifyContent: "space-between", alignItems: "flex-end"}}>
+                    <div className="about-card-landingPage" style={{marginLeft: "-50px"}}>
+                        <CustomCard setLiked={setLikedDown} liked={likedDown} user="Ragil" theme={darkTheme} opacity="0.5" thumbnailColor="purple" title="Tech in Africa : Google's Allo Messenger and a taxi war app" body="But of the many celestial phenomenons, there is probably none as exciting as..."/>
+                    </div>
+                    <img src={Statistics} alt="statistics" style={{marginRight: "-40px"}}/>
+                    </div>
+                </div>
+            </Container>
+            <Container style={{ marginTop: "100px" }}>
+                <div className="box">
+
+                </div>
+                <div className="content-container">
+                    <Typography variant="body1" sx={{ color: "#21A099", fontSize: "18px" }}>
+                        WHAT I DO
+                    </Typography>
+                    <Typography variant="h3" sx={{ fontFamily: "Inter", fontSize: "38px", marginTop: "20px", fontWeight: "500", lineHeight: "48px" }}>
+                        What Exactly I Am Doing When Nothing Comes to Mind
+                    </Typography>
+                    <Typography sx={{ marginTop: "30px", lineHeight: "32px", color: "#828282", marginBottom: "20px" }}>
+                        I am willing to make the web look attractive and good. I am a person who enjoys working in a team because of the many positive feedbacks that go into it.
+                    </Typography>
+                    <div className="service-req-landing">
+                        <div>
+                            <div className="service-reg-section-landing">
+                                <img src={CheckLogo} alt="check-logo" width='24' />
+                                <p style={{ marginLeft: "10px", fontWeight: "500" }}>Front End</p>
+                            </div>
+                            <div className="service-reg-section-landing">
+                                <img src={CheckLogo} alt="check-logo" width='24' />
+                                <p style={{ marginLeft: "10px", fontWeight: "500" }}>UI/UX</p>
+                            </div>
+                        </div>
+                        <div style={{ marginLeft: "30px" }}>
+                            <div className="service-reg-section-landing">
+                                <img src={CheckLogo} alt="check-logo" width='24' />
+                                <p style={{ marginLeft: "10px", fontWeight: "500" }}>Et cetera</p>
+                            </div>
+                            <div className="service-reg-section-landing">
+                                <img src={CheckLogo} alt="check-logo" width='24' />
+                                <p style={{ marginLeft: "10px", fontWeight: "500" }}>Et Cetera</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </Container>
         </div>
     );
 }

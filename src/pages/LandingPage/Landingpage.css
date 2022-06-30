@@ -1,19 +1,11 @@
-.jumbotron-content {
-    width: 60%;
-}
-
 .container {
-    width: 100%;
+    width: 60%;
     /* padding: 20px; */
     /* margin-left: 350px; */
 }
 
-.container-2 {
-    padding: 0 40px 40px 40px;
-}
-
 .content-container {
-    margin-left: 300px;
+    width: 50%;
 }
 
 .landing-page-title {
@@ -56,6 +48,41 @@ p {
 
 .waving-hand {
     width: 30px;
+}
+
+.service-req-landing {
+    display: flex;
+    /* width: 70%; */
+}
+
+.service-reg-section-landing {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: fit-content;
+}
+
+.box {
+    width: 40%;
+    background-color: #21A099;
+    /* opacity: 0.3; */
+    border-radius: 20px;
+    box-shadow: 5px 20px 50px rgba(170, 185, 251, 0.15);
+    height: 300px;
+}
+
+.about-box {
+    width: 40%;
+    background-color: #BAE1DF;
+    background-image: url('../../assets/pattern.svg');
+    /* opacity: 0.3; */
+    border-radius: 20px;
+    box-shadow: 5px 20px 50px rgba(170, 185, 251, 0.15);
+    height: 530px;
+}
+
+.box .about-card-landingPage {
+    opacity: 1;
 }
 
 @media screen and (max-device-width: 1000px){
