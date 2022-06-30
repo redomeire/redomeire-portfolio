@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Switch } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
+import AdbIcon from '@mui/icons-material/Adb';
 
 const pages = ['Profile', 'My Journey' ,'Project', 'Contact'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -41,7 +42,7 @@ const ResponsiveAppBar = () => {
     <AppBar elevation={0} variant='elevation' position="static" sx={{backgroundColor: "transparent", padding: "10px 40px 10px 60px"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
+          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' },color: "#21A099", mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
