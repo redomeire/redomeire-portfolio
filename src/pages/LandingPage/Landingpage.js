@@ -79,7 +79,12 @@ function Landingpage() {
             </Container>
             <Container style={{ marginTop: "100px" }}>
                 <div className="box">
-
+                    <div className="box-video">
+                        <p>Watch Video</p>
+                        <Button variant="contained" color="secondary" sx={{width: "60px", height: "60px", borderRadius: "50%", backgroundColor: "white", display: "flex", alignItems: "center", justifyContent: "center"}} className="box-play-button">
+                            <PlayArrowIcon color="black" sx={{color: "#21A099"}}/>
+                        </Button>
+                    </div>
                 </div>
                 <div className="content-container">
                     <Typography variant="body1" sx={{ color: "#21A099", fontSize: "18px" }}>

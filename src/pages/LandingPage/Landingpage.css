@@ -64,10 +64,12 @@ p {
 
 .box {
     width: 40%;
-    background-color: #21A099;
+    background-color: #BAE1DF;
     /* opacity: 0.3; */
     border-radius: 20px;
     box-shadow: 5px 20px 50px rgba(170, 185, 251, 0.15);
+    background-image: url('../../assets/coding-image.jpg');
+    background-size: cover;
     height: 300px;
 }
 
@@ -79,6 +81,32 @@ p {
     border-radius: 20px;
     box-shadow: 5px 20px 50px rgba(170, 185, 251, 0.15);
     height: 530px;
+}
+
+.box-video {
+    background-color: #21A099;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px 40px 40px;
+    max-width: 200px;
+    float: right;
+    margin-top: -50px;
+    margin-right: -50px;
+    border-radius: 10px;
+    color: white;
+    opacity: 0.9;
+}
+
+.box-play-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .box .about-card-landingPage {
