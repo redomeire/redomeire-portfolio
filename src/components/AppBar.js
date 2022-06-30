@@ -11,6 +11,8 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { Switch } from '@mui/material';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
 
 const pages = ['Profile', 'My Journey' ,'Project', 'Contact'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -18,6 +20,7 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [darken, setDarken] = React.useState(false);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -126,7 +129,10 @@ const ResponsiveAppBar = () => {
               </Button>
             ))}
           </Box>
-
+          <div style={{display: "flex", alignItems: "center", marginRight:"20px"}}>
+            <Switch color="default" onChange={() => setDarken(!darken)}/>
+            <Brightness4Icon sx={{color: darken ? "black" : "white"}}/>
+          </div>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
