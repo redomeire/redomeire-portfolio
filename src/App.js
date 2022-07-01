@@ -6,16 +6,18 @@ import Contact from './pages/Contact/Contact';
 import Project from './pages/myProject/Project';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from './components/Theme';
+import PageNotFound from './components/PageNotFound';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Landingpage/>}/>
-          <Route path="/profile" element={<Profile/>}/>
+          <Route exact path="/" element={<Landingpage/>}/>
+          <Route path="*" element={<PageNotFound/>}/>
+          {/* <Route path="/profile" element={<Profile/>}/>
           <Route path="/project" element={<Project/>}/>
-          <Route path="/contact" element={<Contact/>}/>
+          <Route path="/contact" element={<Contact/>}/> */}
         </Routes>
       </div>
     </ThemeProvider>
