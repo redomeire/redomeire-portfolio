@@ -1,4 +1,4 @@
-import { Button,TextField,Typography } from "@mui/material";
+import { Button, TextField, Typography } from "@mui/material";
 import "../../components/style/GLobal.css";
 import "./Landingpage.css";
 import ResponsiveAppBar from "../../components/AppBar";
@@ -23,6 +23,7 @@ const Container = styled.div`
     margin-top: 60px;
     @media (max-width: 1000px){
         flex-direction: column;
+        padding: 20px;
     }
 `;
 
@@ -37,18 +38,18 @@ function Landingpage() {
                     <Typography variant="body1" sx={{ color: "#21A099", fontSize: "18px" }}>
                         INTRODUCTION
                     </Typography>
-                    <Typography variant="h3" sx={{ fontFamily: "Source Sans Pro", fontSize: "64px", marginTop: "20px", fontWeight: "700", lineHeight: "74px" }}>
+                    <Typography variant="h3" sx={{ fontFamily: "Source Sans Pro", fontSize: {s: "20px", md: "64px"}, marginTop: "20px", fontWeight: "700", lineHeight: {s: "50px", md: "74px"} }}>
                         Hello there ! <br /> I am <span style={{ color: "#21A099" }}>Redomeire</span>
                     </Typography>
                     <Typography sx={{ marginTop: "30px", lineHeight: "32px", color: "#828282" }}>
                         Yet preference connection unpleasant yet melancholy but end appearance. And excellence partiality estimating terminated day everything.
                     </Typography>
                     <div className="jumbotron-buttons" style={{ marginTop: "30px" }}>
-                        <a style={{textDecoration: "none"}} href="#about">
-                        <Button variant="contained" sx={{ backgroundColor: "#21A099", color: "white", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", padding: "15px", textTransform: "capitalize" }}>Get Started</Button>
+                        <a style={{ textDecoration: "none" }} href="#about">
+                            <Button variant="contained" sx={{ backgroundColor: "#21A099", color: "white", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", padding: "15px", textTransform: "capitalize" }}>Get Started</Button>
                         </a>
-                        <Link to="/project" style={{textDecoration: "none"}}>
-                        <Button startIcon={<PlayArrowIcon />} variant="outlined" sx={{ border: "1px solid #21A099", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", mx: 2, padding: "14px", color: "#21A099", textTransform: "capitalize" }}>See My Project</Button>
+                        <Link to="/project" style={{ textDecoration: "none" }}>
+                            <Button startIcon={<PlayArrowIcon />} variant="outlined" sx={{ border: "1px solid #21A099", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", mx: 2, padding: "14px", color: "#21A099", textTransform: "capitalize" }}>See My Project</Button>
                         </Link>
                     </div>
                 </div>
@@ -67,21 +68,21 @@ function Landingpage() {
 
                         For additional information, I'm really passionate in developing apps, especially on front-end side.
                     </Typography>
-                    <Link style={{textDecoration: "none"}} to="/profile">
-                    <Button endIcon={<ArrowForwardIcon />} sx={{ color: "#21A099" }}>
-                        Learn more about me
-                    </Button>
+                    <Link style={{ textDecoration: "none" }} to="/profile">
+                        <Button endIcon={<ArrowForwardIcon />} sx={{ color: "#21A099" }}>
+                            Learn more about me
+                        </Button>
                     </Link>
                 </div>
                 <div className="about-box">
-                    <div className="about-card-landingPage" style={{marginTop: "-50px", marginLeft:"130px", marginBottom: "20px"}}>
-                        <CustomCard setLiked={setLikedUp} liked={likedUp} user="Rafli Ardiansyah" opacity="0.9" thumbnailColor="red" title="GoPro unveils its foldable drone 'Karma'" body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+                    <div className="about-card-landingPage-up">
+                        <CustomCard setLiked={setLikedUp} liked={likedUp} user="Rafli Ardiansyah" opacity="0.9" thumbnailColor="red" title="GoPro unveils its foldable drone 'Karma'" body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
                     </div>
-                    <div style={{display: "flex", justifyContent: "space-between", alignItems: "flex-end"}}>
-                    <div className="about-card-landingPage" style={{marginLeft: "-50px"}}>
-                        <CustomCard setLiked={setLikedDown} liked={likedDown} user="Gilang Khrismahaq" themes={darkTheme} opacity="0.5" thumbnailColor="purple" title="Tech in Africa : Google's Allo Messenger and a taxi war app" body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor..."/>
-                    </div>
-                    <img src={Statistics} alt="statistics" style={{marginRight: "-40px"}}/>
+                    <div className="about-card-landingPage-container">
+                        <div className="about-card-landingPage-down">
+                            <CustomCard setLiked={setLikedDown} liked={likedDown} user="Gilang Khrismahaq" themes={darkTheme} opacity="0.5" thumbnailColor="purple" title="Tech in Africa : Google's Allo Messenger and a taxi war app" body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor..." />
+                        </div>
+                        <img className="statistics-image" src={Statistics} alt="statistics"/>
                     </div>
                 </div>
             </Container>
@@ -89,8 +90,8 @@ function Landingpage() {
                 <div className="box">
                     <div className="box-video">
                         <p>Watch Video</p>
-                        <Button variant="contained" color="secondary" sx={{width: "60px", height: "60px", borderRadius: "50%", backgroundColor: "white", display: "flex", alignItems: "center", justifyContent: "center"}} className="box-play-button">
-                            <PlayArrowIcon color="black" sx={{color: "#21A099"}}/>
+                        <Button variant="contained" color="secondary" sx={{ width: "60px", height: "60px", borderRadius: "50%", backgroundColor: "white", display: "flex", alignItems: "center", justifyContent: "center" }} className="box-play-button">
+                            <PlayArrowIcon color="black" sx={{ color: "#21A099" }} />
                         </Button>
                     </div>
                 </div>
@@ -128,17 +129,19 @@ function Landingpage() {
                     </div>
                 </div>
             </Container>
-            <Container style={{marginBottom: "80px"}}>
+            <Container style={{ marginBottom: "80px" }}>
                 <div className="subscription-landing-page">
-                    <Typography variant="h4" sx={{fontWeight: "600", fontFamily: "Inter", lineHeight: "64px"}}>Subscribe to our Newsletter</Typography>
-                    <Typography variant="body2" sx={{color: "#828282"}}>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing.</Typography>
+                    <Typography variant="h4" sx={{ fontWeight: "600", fontFamily: "Inter", marginBottom: "20px"}}>Subscribe to our Newsletter</Typography>
+                    <Typography variant="body2" sx={{ color: "#828282" }}>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing.</Typography>
                     <form className="subscription-form" onSubmit={e => e.preventDefault()}>
-                        <TextField type="email" id="outlined-basic" variant="standard" placeholder="Enter your email" sx={{border: "none"}} required/>
-                        <Button type="submit" variant="contained" sx={{marginLeft: "20px",backgroundColor: "#21A099", color: "white", borderRadius: "0", fontSize: "16px", fontFamily: "Inter", textTransform: "capitalize", padding: "10px 15px"}}>Subscribe</Button>
+                        <TextField type="email" id="outlined-basic" variant="standard" placeholder="Enter your email" sx={{ border: "none" }} required />
+                        <div className="button-subscription">
+                        <Button type="submit" variant="contained" sx={{backgroundColor: "#21A099", color: "white", borderRadius: "0", fontSize: "16px", fontFamily: "Inter", textTransform: "capitalize", padding: "10px 15px" }}>Subscribe</Button>
+                        </div>
                     </form>
                 </div>
             </Container>
-            <Footer/>
+            <Footer />
         </div>
     );
 }

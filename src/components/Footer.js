@@ -13,6 +13,10 @@ const Subcontainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    flex-wrap: wrap;
+    // @media (max-width: 1000px) {
+    //     flex-direction: column;
+    // }
 `;
 
 const FooterButton = styled(Button)({

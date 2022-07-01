@@ -50,7 +50,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar elevation={0} variant='elevation' position="static" sx={{ backgroundColor: "transparent", padding: "10px 40px 10px 60px" }}>
+    <AppBar elevation={0} variant='elevation' position="static" sx={{ backgroundColor: "transparent", padding: { md: "10px 40px 10px 60px", xs: "0" } }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' },color: "#21A099", mr: 1 }} /> */}
