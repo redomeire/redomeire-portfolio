@@ -12,6 +12,7 @@ import Statistics from "../../assets/statistic.svg";
 import { darkTheme } from "../../components/Theme";
 import { useState } from "react";
 import Footer from "../../components/Footer";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
     display: flex;
@@ -43,13 +44,17 @@ function Landingpage() {
                         Yet preference connection unpleasant yet melancholy but end appearance. And excellence partiality estimating terminated day everything.
                     </Typography>
                     <div className="jumbotron-buttons" style={{ marginTop: "30px" }}>
+                        <a style={{textDecoration: "none"}} href="#about">
                         <Button variant="contained" sx={{ backgroundColor: "#21A099", color: "white", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", padding: "15px", textTransform: "capitalize" }}>Get Started</Button>
+                        </a>
+                        <Link to="/project" style={{textDecoration: "none"}}>
                         <Button startIcon={<PlayArrowIcon />} variant="outlined" sx={{ border: "1px solid #21A099", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", mx: 2, padding: "14px", color: "#21A099", textTransform: "capitalize" }}>See My Project</Button>
+                        </Link>
                     </div>
                 </div>
             </Container>
             <img style={{ position: "absolute", right: "0", top: "0", zIndex: "-1", width: "40%" }} src={JumbotronVector} alt="vector" />
-            <Container style={{ marginTop: "100px" }}>
+            <Container style={{ marginTop: "100px" }} id="about">
                 <div className="content-container">
                     <Typography variant="body1" sx={{ color: "#21A099", fontSize: "18px" }}>
                         ABOUT

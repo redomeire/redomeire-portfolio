@@ -10,8 +10,9 @@ import { IconButton, Switch, Tooltip } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import AdbIcon from '@mui/icons-material/Adb';
 import CustomDrawer from './CustomDrawer';
+import { Link } from 'react-router-dom';
 
-const pages = ['Profile', 'My Journey' ,'Project', 'Contact'];
+const pages = [{ name: 'My Journey', to: "/profile" }, { name: 'Project', to: "/project" }, {name: 'Contact', to: "/contact"}];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
@@ -85,13 +86,15 @@ const ResponsiveAppBar = () => {
           {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }}}>
             {pages.map((page) => (
+              <Link to={page.to} style={{textDecoration: "none"}}>
               <Button
-                key={page}
+                key={page.name}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'black', display: 'block', fontFamily: "Inter", textTransform: "capitalize", mx: 3 }}
               >
-                {page}
+                {page.name}
               </Button>
+              </Link>
             ))}
           </Box>
           <div style={{display: "flex", alignItems: "center", marginRight:"20px"}}>
@@ -99,8 +102,8 @@ const ResponsiveAppBar = () => {
             <Brightness4Icon sx={{color: darken ? "black" : "white"}}/>
           </div>
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+          <Tooltip title="">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, display: {xs: "none", md: "flex" }}}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
