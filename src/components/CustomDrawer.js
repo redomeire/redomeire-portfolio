@@ -34,7 +34,7 @@ function CustomDrawer(props) {
     >
       <List>
         {props.pages?.map((text, index) => (
-          <Link href={text.to} key={text.name}>
+          <Link href={text.to} key={text.name} sx={{textDecoration: "none", color: "black"}}>
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>

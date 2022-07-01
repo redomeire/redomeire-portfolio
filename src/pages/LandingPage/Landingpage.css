@@ -113,6 +113,16 @@ p {
     opacity: 1;
 }
 
+.about-box .about-card-landingPage-up {
+    margin-top: -50px;
+    margin-left: 130px;
+    margin-bottom: 20px;
+}
+
+.about-card-landingPage-down {
+    margin-left: -50px;
+}
+
 .subscription-landing-page {
     margin: auto;
     text-align: center;
@@ -128,13 +138,31 @@ p {
     align-items: center;
 }
 
+.about-card-landingPage-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.statistics-image {
+    margin-right: -40px;
+    margin-left: 20px;
+}
+
+.button-subscription {
+    margin-left: 20px;
+}
+
 @media screen and (max-device-width: 1000px){
     .container {
         margin-left: 0;
+        width: 100%;
+        padding: 0;
     }
 
     .content-container {
         margin-left: 0;
+        width: 100%;
     }
 
     .container-2 {
@@ -154,5 +182,55 @@ p {
         font-size: 20px;
         margin-bottom: 40px;
         line-height: 1.5;
+    }
+
+    .about-box {
+        margin-top: 40px;
+        width: 100%;
+        padding: 40px;
+        height: fit-content;
+    }
+
+    .about-box .about-card-landingPage-up {
+        margin-top: 0;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .about-card-landingPage-container {
+        flex-direction: column;
+    }
+
+    .about-card-landingPage-down {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .statistics-image {
+        margin-right: 0;
+        display: none;
+    }
+
+    .box {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    .box-video {
+        float: left;
+    }
+
+    .subscription-landing-page {
+        width: 100%;
+    }
+
+    .subscription-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .button-subscription {
+        margin-left: 0;
+        margin-top: 20px;
     }
 }
