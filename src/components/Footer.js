@@ -1,4 +1,4 @@
-import { List, ListItem, ListItemButton, ListItemText, TextField, Typography } from "@mui/material";
+import { Button, List, ListItem, ListItemButton, ListItemText, TextField, Typography } from "@mui/material";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -152,6 +152,9 @@ function Footer() {
                     </ListItem>
                     <ListItem>
                         <TextField autoComplete placeholder="Enter your mail" variant="outlined" color="primary" sx={{ backgroundColor: "white", borderRadius: "5px", outline: "none" }} />
+                    </ListItem>
+                    <ListItem>
+                        <Button variant="contained" sx={{color: "black", backgroundColor: "white", textTransform: "capitalize"}}>Submit</Button>
                     </ListItem>
                 </List>
             </Subcontainer>
