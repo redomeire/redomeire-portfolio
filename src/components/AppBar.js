@@ -11,14 +11,28 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import AdbIcon from '@mui/icons-material/Adb';
 import CustomDrawer from './CustomDrawer';
 import { Link } from 'react-router-dom';
+import HeroThumbnail from "../assets/hero-thumbnail.svg";
 
-const pages = [{ name: 'My Journey', to: "/profile" }, { name: 'Project', to: "/project" }, {name: 'Contact', to: "/contact"}];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [darken, setDarken] = React.useState(false);
+  const pages = [
+    { 
+      name: 'My Journey', 
+      to: "/profile" 
+    }, 
+    { 
+      name: 'Project', 
+      to: "/project" 
+    }, 
+    { 
+      name: 'Contact', 
+      to: "/contact" 
+    }
+  ];
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -36,7 +50,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar elevation={0} variant='elevation' position="static" sx={{backgroundColor: "transparent", padding: "10px 40px 10px 60px"}}>
+    <AppBar elevation={0} variant='elevation' position="static" sx={{ backgroundColor: "transparent", padding: "10px 40px 10px 60px" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' },color: "#21A099", mr: 1 }} /> */}
@@ -56,55 +70,55 @@ const ResponsiveAppBar = () => {
               textDecoration: 'none',
             }}
           >
-            <span style={{color: "black"}}>RE</span>
+            <span style={{ color: "black" }}>RE</span>
             <span>DO</span>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, alignItems: "center" }}>
-            <CustomDrawer pages={pages}/>
+            <CustomDrawer pages={pages} />
             <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: '#21A099',
-              textDecoration: 'none',
-              marginLeft: "20px"
-            }}
-          >
-            <span style={{color: "black"}}>RE</span>
-            <span>DO</span>
-          </Typography>
+              variant="h5"
+              noWrap
+              component="a"
+              href=""
+              sx={{
+                mr: 2,
+                display: { xs: 'flex', md: 'none' },
+                flexGrow: 1,
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: '#21A099',
+                textDecoration: 'none',
+                marginLeft: "20px"
+              }}
+            >
+              <span style={{ color: "black" }}>RE</span>
+              <span>DO</span>
+            </Typography>
           </Box>
           {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }}}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Link to={page.to} style={{textDecoration: "none"}}>
-              <Button
-                key={page.name}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'black', display: 'block', fontFamily: "Inter", textTransform: "capitalize", mx: 3 }}
-              >
-                {page.name}
-              </Button>
+              <Link to={page.to} style={{ textDecoration: "none" }} key={page.name}>
+                <Button
+                  key={page.name}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'black', display: 'block', fontFamily: "Inter", textTransform: "capitalize", mx: 3 }}
+                >
+                  {page.name}
+                </Button>
               </Link>
             ))}
           </Box>
-          <div style={{display: "flex", alignItems: "center", marginRight:"20px"}}>
-            <Switch color="default" onChange={() => setDarken(!darken)}/>
-            <Brightness4Icon sx={{color: darken ? "black" : "white"}}/>
+          <div style={{ display: "flex", alignItems: "center", marginRight: "20px" }}>
+            <Switch color="default" onChange={() => setDarken(!darken)} />
+            <Brightness4Icon sx={{ color: darken ? "black" : "white" }} />
           </div>
           <Box sx={{ flexGrow: 0 }}>
-          <Tooltip title="">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, display: {xs: "none", md: "flex" }}}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+            <Tooltip title="">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, display: { xs: "none", md: "flex" } }}>
+                <Avatar alt="Remy Sharp" src={HeroThumbnail} />
               </IconButton>
             </Tooltip>
             {/* <Menu

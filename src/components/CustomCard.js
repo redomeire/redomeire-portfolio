@@ -5,7 +5,7 @@ import ShareIcon from '@mui/icons-material/Share';
 
 function CustomCard(props) {
     return (
-        <ThemeProvider theme={props.theme}>
+        <ThemeProvider theme={props.themes}>
         <Card sx={{ maxWidth: 300, opacity: props.opacity, borderRadius: "20px", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" }}>
             <CardHeader
                 avatar={

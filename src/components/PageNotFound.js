@@ -1,5 +1,4 @@
 import { Button, Link, Typography } from "@mui/material";
-import HeroThumbnail from "../assets/hero-thumbnail.svg";
 import PageNotFoundImage from "../assets/page_not_found.svg";
 
 function PageNotFound(){

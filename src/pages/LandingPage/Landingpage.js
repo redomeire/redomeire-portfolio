@@ -79,7 +79,7 @@ function Landingpage() {
                     </div>
                     <div style={{display: "flex", justifyContent: "space-between", alignItems: "flex-end"}}>
                     <div className="about-card-landingPage" style={{marginLeft: "-50px"}}>
-                        <CustomCard setLiked={setLikedDown} liked={likedDown} user="Gilang Khrismahaq" theme={darkTheme} opacity="0.5" thumbnailColor="purple" title="Tech in Africa : Google's Allo Messenger and a taxi war app" body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor..."/>
+                        <CustomCard setLiked={setLikedDown} liked={likedDown} user="Gilang Khrismahaq" themes={darkTheme} opacity="0.5" thumbnailColor="purple" title="Tech in Africa : Google's Allo Messenger and a taxi war app" body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor..."/>
                     </div>
                     <img src={Statistics} alt="statistics" style={{marginRight: "-40px"}}/>
                     </div>
