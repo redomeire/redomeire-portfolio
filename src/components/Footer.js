@@ -15,6 +15,18 @@ const Subcontainer = styled.div`
     align-items: flex-start;
 `;
 
+const FooterButton = styled(Button)({
+    backgroundColor: "white",
+    color: "black",
+    textTransform: "capitalize",
+    '&:hover': {
+        backgroundColor: "#d6d6d6"
+    },
+    '&:focus': {
+        boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
+    }
+})
+
 
 function Footer() {
     return (
@@ -150,12 +162,14 @@ function Footer() {
                     <ListItem>
                         <Typography variant="body2">You'll find your next freelance value you prefer.</Typography>
                     </ListItem>
+                    <form onSubmit={e => e.preventDefault()}>
                     <ListItem>
-                        <TextField autoComplete placeholder="Enter your mail" variant="outlined" color="primary" sx={{ backgroundColor: "white", borderRadius: "5px", outline: "none" }} />
+                        <TextField required type="email" autoComplete placeholder="Enter your mail" variant="outlined" color="primary" sx={{ backgroundColor: "white", borderRadius: "5px", outline: "none" }} />
                     </ListItem>
                     <ListItem>
-                        <Button variant="contained" sx={{color: "black", backgroundColor: "white", textTransform: "capitalize"}}>Submit</Button>
+                        <FooterButton type="submit">Submit</FooterButton>
                     </ListItem>
+                    </form>
                 </List>
             </Subcontainer>
             <Subcontainer style={{marginTop: "50px", padding: "10px 10px 5px 10px", alignItems: "center"}}>
