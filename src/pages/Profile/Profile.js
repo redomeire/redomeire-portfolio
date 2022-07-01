@@ -1,4 +1,4 @@
-import { IconButton, Typography } from "@mui/material";
+import { Button, IconButton, Tooltip, Typography } from "@mui/material";
 import Navbar from "../../components/Navbar";
 import "../Profile/Profile.css";
 import Education from "../../components/Education";
@@ -6,59 +6,60 @@ import SchoolIcon from '@mui/icons-material/School';
 import WhatIDo from "../../components/WhatIDo";
 import WorkIcon from '@mui/icons-material/Work';
 import Experience from "../../components/Experience";
-import ButtonAppBar from "../../components/AppBar";
+import { Container } from "../LandingPage/Landingpage";
+import ResponsiveAppBar from "../../components/AppBar";
+import styled from "styled-components";
+import TravellingImage from "../../assets/travelling_image.svg";
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
-function Profile(){
-    return(
-        <div className="bg-color-background profile" style={{display : "flex"}}>
-            <Navbar/>
-            <div className="content-container">
-                <ButtonAppBar/>
-                <div className="profile-container text-left color-white">
-                    <div className="container-profile-2">
-                        <div className="title-section">
-                            <Typography variant="h2" sx={{marginTop: "50px", fontWeight: "bold", marginRight: 2}} className="landing-page-title fs-64">Let's See My Journey</Typography>
-                            {/* <Tooltip title="Hello everyone!!" placement="right">
-                                <img src={wavingHand} alt="waving hand"/>
-                            </Tooltip> */}
+const Jumbotron = styled.div`
+    // background-color: #21A099;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+`;
+
+const DiscoverButton = styled(Button)({
+    color: "white",
+    textTransform: "capitalize",
+    fontSize: "18px",
+    fontFamily: "Inter",
+    backgroundColor: "#21A099",
+    '&:hover': {
+        backgroundColor: "#207A75"
+    },
+    '&:focus': {
+        boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
+        outline: "none"
+    }
+});
+
+function Profile() {
+    return (
+        <div>
+            <ResponsiveAppBar />
+            <Container style={{marginTop: "10px"}}>
+                <div className="content-container-profile">
+                    <Jumbotron>
+                        <div className="jumbotron-content-profile">
+                            <Typography variant="body1" sx={{ color: "#21A099", fontSize: "18px" }}>
+                                MY JOURNEY
+                            </Typography>
+                            <Typography variant="h3" sx={{ fontFamily: "Source Sans Pro", fontSize: { s: "20px", md: "64px" }, marginTop: "5px", fontWeight: "700", lineHeight: { s: "50px", md: "74px" } }}>My Journey</Typography>
+                            <Typography variant="body1" sx={{ lineHeight: "32px", color: "#828282", marginTop: "20px" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun</Typography>
                         </div>
-                        <p className="color-secondary-dark fs-24" style={{marginBottom: "50px"}}>My Journey</p>
-
-                        <Education/>
-
-                        <div id="what-i-do" style={{marginTop : "50px"}}>
-                            <div className="item-title">
-                                <h2># What i do</h2>
-                                <IconButton color="primary">
-                                    <SchoolIcon/>
-                                </IconButton>
-                            </div>
-                            <div className="subtitle">
-                                <p className="color-secondary-dark">What i am doing when nothing comes to mind</p>
-                            </div>
+                        <div className="jumbotron-image-profile">
+                            <img src={TravellingImage} alt="travelling" width="300" />
+                            <div className="circle-profile" />
                         </div>
-
-                        <WhatIDo/>
-
-                        <div id="tech-stack" style={{marginTop : "50px"}}>
-                            <div className="item-title">
-                                <h2># Experience</h2>
-                                <IconButton color="primary">
-                                    <WorkIcon/>
-                                </IconButton>
-                            </div>
-                            <div className="subtitle">
-                                <p className="color-secondary-dark">Here's my professional experience</p>
-                            </div>
-
-                            {/* <TechStack/> */}
-                            <Experience/>
-                        </div>
-
-                        {/* <img className="random-shape" src={AnimatedShape} alt="random shape"></img> */}
-                    </div>
+                    </Jumbotron>
+                    <DiscoverButton variant="contained" sx={{marginTop: "20px"}} endIcon={<ArrowDownwardIcon/>}>Discover</DiscoverButton>
                 </div>
-            </div>
+            </Container>
+            <Container>
+            </Container>
         </div>
     );
 }
