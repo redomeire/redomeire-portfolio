@@ -11,6 +11,7 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import AdbIcon from '@mui/icons-material/Adb';
 import CustomDrawer from './CustomDrawer';
 import { Link } from 'react-router-dom';
+import HeroThumbnail from "../assets/hero-thumbnail.svg";
 
 const pages = [{ name: 'My Journey', to: "/profile" }, { name: 'Project', to: "/project" }, {name: 'Contact', to: "/contact"}];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -104,7 +105,7 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 0 }}>
           <Tooltip title="">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, display: {xs: "none", md: "flex" }}}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src={HeroThumbnail} />
               </IconButton>
             </Tooltip>
             {/* <Menu
