@@ -44,17 +44,19 @@
 /*scrollbar*/
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
   }
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #474747; 
+    background: #21A099; 
+    background-clip: padding-box; 
   }
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #666666; 
+    background: #3a3a3a; 
+    border-radius: 20px;
   }
   
   /* Handle on hover */

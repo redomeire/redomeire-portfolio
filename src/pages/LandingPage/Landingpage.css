@@ -113,6 +113,21 @@ p {
     opacity: 1;
 }
 
+.subscription-landing-page {
+    margin: auto;
+    text-align: center;
+}
+
+.subscription-form {
+    border: 1px solid #D7D7D7;
+    width: fit-content;
+    padding: 20px;
+    margin: 50px auto;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
 @media screen and (max-device-width: 1000px){
     .container {
         margin-left: 0;

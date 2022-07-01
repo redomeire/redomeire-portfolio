@@ -1,4 +1,4 @@
-import { Button,Typography } from "@mui/material";
+import { Button,TextField,Typography } from "@mui/material";
 import "../../components/style/GLobal.css";
 import "./Landingpage.css";
 import ResponsiveAppBar from "../../components/AppBar";
@@ -11,6 +11,7 @@ import CustomCard from "../../components/CustomCard";
 import Statistics from "../../assets/statistic.svg";
 import { darkTheme } from "../../components/Theme";
 import { useState } from "react";
+import Footer from "../../components/Footer";
 
 const Container = styled.div`
     display: flex;
@@ -62,22 +63,22 @@ function Landingpage() {
                         For additional information, I'm really passionate in developing apps, especially on front-end side.
                     </Typography>
                     <Button endIcon={<ArrowForwardIcon />} sx={{ color: "#21A099" }}>
-                        Learn more about monitoring
+                        Learn more about me
                     </Button>
                 </div>
                 <div className="about-box">
                     <div className="about-card-landingPage" style={{marginTop: "-50px", marginLeft:"130px", marginBottom: "20px"}}>
-                        <CustomCard setLiked={setLikedUp} liked={likedUp} user="Jontor" opacity="0.9" thumbnailColor="red" title="GoPro unveils its foldable drone 'Karma'" body="This impressive paella is a perfect party dish and a fun meal to cook together with your guests."/>
+                        <CustomCard setLiked={setLikedUp} liked={likedUp} user="Rafli Ardiansyah" opacity="0.9" thumbnailColor="red" title="GoPro unveils its foldable drone 'Karma'" body="This impressive paella is a perfect party dish and a fun meal to cook together with your guests."/>
                     </div>
                     <div style={{display: "flex", justifyContent: "space-between", alignItems: "flex-end"}}>
                     <div className="about-card-landingPage" style={{marginLeft: "-50px"}}>
-                        <CustomCard setLiked={setLikedDown} liked={likedDown} user="Ragil" theme={darkTheme} opacity="0.5" thumbnailColor="purple" title="Tech in Africa : Google's Allo Messenger and a taxi war app" body="But of the many celestial phenomenons, there is probably none as exciting as..."/>
+                        <CustomCard setLiked={setLikedDown} liked={likedDown} user="Gilang Khrismahaq" theme={darkTheme} opacity="0.5" thumbnailColor="purple" title="Tech in Africa : Google's Allo Messenger and a taxi war app" body="But of the many celestial phenomenons, there is probably none as exciting as..."/>
                     </div>
                     <img src={Statistics} alt="statistics" style={{marginRight: "-40px"}}/>
                     </div>
                 </div>
             </Container>
-            <Container style={{ marginTop: "100px" }}>
+            <Container style={{ margin: "100px 0 150px 0" }}>
                 <div className="box">
                     <div className="box-video">
                         <p>Watch Video</p>
@@ -120,6 +121,17 @@ function Landingpage() {
                     </div>
                 </div>
             </Container>
+            <Container style={{marginBottom: "80px"}}>
+                <div className="subscription-landing-page">
+                    <Typography variant="h4" sx={{fontWeight: "600", fontFamily: "Inter", lineHeight: "64px"}}>Subscribe to our Newsletter</Typography>
+                    <Typography variant="body2" sx={{color: "#828282"}}>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing.</Typography>
+                    <form className="subscription-form" onSubmit={e => e.preventDefault()}>
+                        <TextField id="outlined-basic" variant="standard" placeholder="Enter your email" sx={{border: "none"}}/>
+                        <Button type="submit" variant="contained" sx={{marginLeft: "20px",backgroundColor: "#21A099", color: "white", borderRadius: "0", fontSize: "16px", fontFamily: "Inter", textTransform: "capitalize", padding: "10px 15px"}}>Subscribe</Button>
+                    </form>
+                </div>
+            </Container>
+            <Footer/>
         </div>
     );
 }
