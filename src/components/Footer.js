@@ -164,7 +164,7 @@ function Footer() {
                     </ListItem>
                     <form onSubmit={e => e.preventDefault()}>
                     <ListItem>
-                        <TextField required type="email" autoComplete placeholder="Enter your mail" variant="outlined" color="primary" sx={{ backgroundColor: "white", borderRadius: "5px", outline: "none" }} />
+                        <TextField required type="email" placeholder="Enter your mail" variant="outlined" color="primary" sx={{ backgroundColor: "white", borderRadius: "5px", outline: "none" }} />
                     </ListItem>
                     <ListItem>
                         <FooterButton type="submit">Submit</FooterButton>

@@ -10,14 +10,11 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
-import { IconButton } from '@mui/material';
+import { IconButton, Link } from '@mui/material';
 
 function CustomDrawer(props) {
   const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
+    left: false
   });
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -36,15 +33,17 @@ function CustomDrawer(props) {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {props.pages.map((text, index) => (
+        {props.pages?.map((text, index) => (
+          <Link href={text.to} key={text.name}>
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText>{text.name}</ListItemText>
             </ListItemButton>
           </ListItem>
+          </Link>
         ))}
       </List>
       <Divider />
