@@ -13,6 +13,7 @@ import { darkTheme } from "../../components/Theme";
 import { useState } from "react";
 import Footer from "../../components/Footer";
 import { Link } from "react-router-dom";
+import CustomButton from "../../components/CustomButton";
 
 export const Container = styled.div`
     display: flex;
@@ -38,7 +39,7 @@ function Landingpage() {
                     <Typography variant="body1" sx={{ color: "#21A099", fontSize: "18px" }}>
                         INTRODUCTION
                     </Typography>
-                    <Typography variant="h3" sx={{ fontFamily: "Source Sans Pro", fontSize: {s: "20px", md: "64px"}, marginTop: "20px", fontWeight: "700", lineHeight: {s: "50px", md: "74px"} }}>
+                    <Typography variant="h3" sx={{ fontFamily: "Source Sans Pro", fontSize: { s: "20px", md: "64px" }, marginTop: "20px", fontWeight: "700", lineHeight: { s: "50px", md: "74px" } }}>
                         Hello there ! <br /> I am <span style={{ color: "#21A099" }}>Redomeire</span>
                     </Typography>
                     <Typography sx={{ marginTop: "30px", lineHeight: "32px", color: "#828282" }}>
@@ -46,10 +47,10 @@ function Landingpage() {
                     </Typography>
                     <div className="jumbotron-buttons" style={{ marginTop: "30px" }}>
                         <a style={{ textDecoration: "none" }} href="#about">
-                            <Button variant="contained" sx={{ backgroundColor: "#21A099", color: "white", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", padding: "15px", textTransform: "capitalize" }}>Get Started</Button>
+                            <CustomButton bg="#21A099" clr="white" variant="contained" style={{ backgroundColor: "#21A099", color: "white", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", padding: "15px", textTransform: "capitalize" }}>Get Started</CustomButton>
                         </a>
                         <Link to="/project" style={{ textDecoration: "none" }}>
-                            <Button startIcon={<PlayArrowIcon />} variant="outlined" sx={{ border: "1px solid #21A099", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", mx: 2, padding: "14px", color: "#21A099", textTransform: "capitalize" }}>See My Project</Button>
+                            <CustomButton startIcon={<PlayArrowIcon />} variant="outlined" style={{ border: "1px solid #21A099", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", marginLeft: "1rem", padding: "14px", color: "#21A099", textTransform: "capitalize" }}>See My Project</CustomButton>
                         </Link>
                     </div>
                 </div>
@@ -82,7 +83,7 @@ function Landingpage() {
                         <div className="about-card-landingPage-down">
                             <CustomCard setLiked={setLikedDown} liked={likedDown} user="Gilang Khrismahaq" themes={darkTheme} opacity="0.5" thumbnailColor="purple" title="Tech in Africa : Google's Allo Messenger and a taxi war app" body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor..." />
                         </div>
-                        <img className="statistics-image" src={Statistics} alt="statistics"/>
+                        <img className="statistics-image" src={Statistics} alt="statistics" />
                     </div>
                 </div>
             </Container>
@@ -131,12 +132,12 @@ function Landingpage() {
             </Container>
             <Container style={{ marginBottom: "80px" }}>
                 <div className="subscription-landing-page">
-                    <Typography variant="h4" sx={{ fontWeight: "600", fontFamily: "Inter", marginBottom: "20px"}}>Subscribe to our Newsletter</Typography>
+                    <Typography variant="h4" sx={{ fontWeight: "600", fontFamily: "Inter", marginBottom: "20px" }}>Subscribe to our Newsletter</Typography>
                     <Typography variant="body2" sx={{ color: "#828282" }}>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing.</Typography>
                     <form className="subscription-form" onSubmit={e => e.preventDefault()}>
                         <TextField type="email" id="outlined-basic" variant="standard" placeholder="Enter your email" sx={{ border: "none" }} required />
                         <div className="button-subscription">
-                        <Button type="submit" variant="contained" sx={{backgroundColor: "#21A099", color: "white", borderRadius: "0", fontSize: "16px", fontFamily: "Inter", textTransform: "capitalize", padding: "10px 15px" }}>Subscribe</Button>
+                            <CustomButton type="submit" variant="contained" style={{ backgroundColor: "#21A099", color: "white", fontSize: "16px", fontFamily: "Inter", textTransform: "capitalize", padding: "10px 15px" }}>Subscribe</CustomButton>
                         </div>
                     </form>
                 </div>
