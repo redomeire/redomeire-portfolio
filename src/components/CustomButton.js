@@ -29,7 +29,7 @@ const StyledButton = styled(Button)`
 };`
 
 function CustomButton(props){
-    return <StyledButton variant={props?.variant} type={props?.type} clr={props.clr} startIcon={props.startIcon}  bg={props.bg} style={props.style}>{props.children}</StyledButton>
+    return <StyledButton variant={props?.variant} type={props?.type} clr={props.clr} startIcon={props.startIcon} endIcon={props.endIcon} bg={props.bg} style={props.style}>{props.children}</StyledButton>
 }
 
 export default CustomButton;
