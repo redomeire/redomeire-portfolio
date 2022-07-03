@@ -12,6 +12,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import CustomDrawer from './CustomDrawer';
 import { Link } from 'react-router-dom';
 import HeroThumbnail from "../assets/hero-thumbnail.svg";
+import CustomButton from './CustomButton';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -101,13 +102,13 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Link to={page.to} style={{ textDecoration: "none" }} key={page.name}>
-                <Button
+                <CustomButton
                   key={page.name}
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'black', display: 'block', fontFamily: "Inter", textTransform: "capitalize", mx: 3 }}
+                  style={{ transform: "none",boxShadow: "none", color: 'black', display: 'block', fontFamily: "Inter", textTransform: "capitalize", margin: "2px 10px 2px 10px", borderBottom: window.location.pathname === page.to ? "3px solid #ABDDDA" : "" }}
                 >
                   {page.name}
-                </Button>
+                </CustomButton>
               </Link>
             ))}
           </Box>
