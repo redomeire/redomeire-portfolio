@@ -1,5 +1,6 @@
 import { Button, List, ListItem, ListItemButton, ListItemText, TextField, Typography } from "@mui/material";
 import styled from "styled-components";
+import CustomButton from "./CustomButton";
 
 const Container = styled.div`
     display: flex;
@@ -171,7 +172,7 @@ function Footer() {
                         <TextField required type="email" placeholder="Enter your mail" variant="outlined" color="primary" sx={{ backgroundColor: "white", borderRadius: "5px", outline: "none" }} />
                     </ListItem>
                     <ListItem>
-                        <FooterButton type="submit">Submit</FooterButton>
+                        <CustomButton style={{backgroundColor: "white", fontFamily: "Inter", textTransform: "capitalize", color: "black", padding: "10px"}} type="submit">Submit</CustomButton>
                     </ListItem>
                     </form>
                 </List>
