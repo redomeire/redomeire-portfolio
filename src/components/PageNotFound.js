@@ -1,7 +1,8 @@
-import { Button, Link, Typography } from "@mui/material";
+import { Link, Typography } from "@mui/material";
 import PageNotFoundImage from "../assets/page_not_found.svg";
 import UnderConstructionImage from "../assets/under_construction.svg";
 import CustomButton from "./CustomButton";
+import HomeIcon from '@mui/icons-material/Home';
 
 function PageNotFound(props){
     return(
@@ -10,7 +11,7 @@ function PageNotFound(props){
             <Typography variant="h4" sx={{marginBottom: "10px", fontWeight: "700", fontFamily: "Source Sans Pro"}}>Oops...</Typography>
             <Typography variant="h6" sx={{marginBottom: "20px", fontFamily: "Source Sans Pro"}}>{props?.value === "not found" ? "There is nothing here" : "website under construction"}</Typography>
             <Link href="/" sx={{textDecoration: "none"}}>
-                <CustomButton variant="outlined" style={{textTransform: "capitalize"}}>Go to Home</CustomButton>
+                <CustomButton startIcon={<HomeIcon/>} variant="outlined" style={{color: "#21A099", borderColor: "#21A099",fontFamily: "Source Sans Pro",textTransform: "capitalize", padding: "10px"}}>Go to Home</CustomButton>
             </Link>
         </div>
     );
