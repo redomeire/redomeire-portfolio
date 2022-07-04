@@ -25,7 +25,7 @@ const Jumbotron = styled.div`
 function Profile() {
     return (
         <div>
-            <ResponsiveAppBar />
+            <ResponsiveAppBar color="black"/>
             <Container style={{ marginTop: "10px" }}>
                 <div className="content-container-profile">
                     <Jumbotron>

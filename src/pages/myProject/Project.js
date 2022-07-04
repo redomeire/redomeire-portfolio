@@ -1,4 +1,4 @@
-import AppBar from "../../components/AppBar";
+import ResponsiveAppBar from "../../components/AppBar";
 import { Container } from "../LandingPage/Landingpage";
 import CustomSlider from "../../components/CustomSlider";
 import "./Project.css";
@@ -20,7 +20,7 @@ const CustomCard = styled(Card)({
 function Project() {
     return (
         <div>
-            <AppBar />
+            <ResponsiveAppBar color="black" />
             <Container style={{ flexDirection: "column" }}>
                 <Box sx={{width: {sm: "50%", xs: "100%"}, textAlign: {sm : "center", xs: "left"}, marginBottom : "20px", alignItems: { sm: "center", xs: "flex-start"}}} display="flex" flexDirection="column">
                     <Typography sx={{ color: "#21A099", marginBottom: "10px" }}>PROJECTS</Typography>

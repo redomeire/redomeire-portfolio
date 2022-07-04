@@ -16,7 +16,7 @@ import CustomButton from './CustomButton';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const ResponsiveAppBar = () => {
+const ResponsiveAppBar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [darken, setDarken] = React.useState(false);
@@ -51,7 +51,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar elevation={0} variant='elevation' position="static" sx={{ backgroundColor: "transparent", padding: { md: "10px 40px 10px 60px", xs: "0" } }}>
+    <AppBar elevation={0} variant='elevation' position="static" sx={{ backgroundColor: "transparent", padding: { md: "10px 40px 10px 60px", xs: "0" }, ...props.style }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' },color: "#21A099", mr: 1 }} /> */}
@@ -69,8 +69,8 @@ const ResponsiveAppBar = () => {
                 color: '#21A099',
               }}
             >
-              <span style={{ color: "black" }}>RE</span>
-              <span>DO</span>
+              <span style={{ color: window.location.pathname === "/contact" ? "white" : "black"}}>RE</span>
+              <span style={{ color: window.location.pathname === "/contact" ? "white" : "#21A099"}}>DO</span>
             </Typography>
           </Link>
 
@@ -93,8 +93,8 @@ const ResponsiveAppBar = () => {
                 marginLeft: "20px"
               }}
             >
-              <span style={{ color: "black" }}>RE</span>
-              <span>DO</span>
+              <span style={{ color: window.location.pathname === "/contact" ? "white" : "black"}}>RE</span>
+              <span style={{ color: window.location.pathname === "/contact" ? "white" : "#21A099"}}>DO</span>
             </Typography>
           </Box>
           {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
@@ -104,7 +104,7 @@ const ResponsiveAppBar = () => {
                 <CustomButton
                   key={page.name}
                   onClick={handleCloseNavMenu}
-                  style={{ transform: "none", boxShadow: "none", color: 'black', display: 'block', fontFamily: "Inter", textTransform: "capitalize", margin: "2px 10px 2px 10px", borderBottom: window.location.pathname === page.to ? "3px solid #ABDDDA" : "" }}
+                  style={{ transform: "none", boxShadow: "none", color: props?.color, display: 'block', fontFamily: "Inter", textTransform: "capitalize", margin: "2px 10px 2px 10px", borderBottom: window.location.pathname === page.to ? "3px solid #ABDDDA" : "" }}
                 >
                   {page.name}
                 </CustomButton>

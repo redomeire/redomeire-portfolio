@@ -9,23 +9,11 @@ import "swiper/css/navigation";
 import "./style/CustomSlider.css";
 
 // import required modules
-import { Pagination, Navigation } from "swiper";
-import CustomCard from "./CustomCard";
-import React, { useEffect } from "react";
+import { Pagination } from "swiper";
+import React from "react";
 import { Card, CardContent, Rating, Typography } from "@mui/material";
 
 export default function CustomSlider() {
-  const [direction, setDirection] = React.useState("vertical");
-
-  React.useEffect(() => {
-    window.addEventListener("resize", () => {
-      if(window.innerWidth > 1000)
-        setDirection("horizontal")
-        else
-        setDirection("vertical")
-    })
-  })
-
   return (
     <>
       <Swiper
