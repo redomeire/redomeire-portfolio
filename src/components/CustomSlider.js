@@ -45,7 +45,7 @@ export default function CustomSlider() {
           <SwiperSlide style={{ backgroundColor: "transparent", textAlign: "left"}}>
           <Card sx={{minHeight: "250px", maxWidth: { xl :"900px", xs: "500px" }, boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}}>
               <CardContent>
-                <Rating defaultValue={5} sx={{ marginBottom: "15px" }} />
+                <Rating readOnly defaultValue={5} sx={{ marginBottom: "15px" }} />
                 <Typography variant="body1" sx={{ marginBottom: "15px", color: "#828282", fontWeight: "400", lineHeight: "32px" }}>
                   “And residence for met the estimable disposing. Mean if he they been no hold mr.”
                 </Typography>
@@ -59,7 +59,7 @@ export default function CustomSlider() {
           <SwiperSlide style={{ backgroundColor: "transparent", textAlign: "left" }}>
           <Card sx={{minHeight: "250px", maxWidth: { xl :"900px", xs: "500px" }, boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}}>
               <CardContent>
-                <Rating defaultValue={5} sx={{ marginBottom: "15px" }} />
+                <Rating readOnly defaultValue={5} sx={{ marginBottom: "15px" }} />
                 <Typography variant="body1" sx={{ marginBottom: "15px", color: "#828282", fontWeight: "400", lineHeight: "32px" }}>
                 “I could not be more thrilled that I ended up deciding on Circle to become the home of the Lightbulb Moment community.”
                 </Typography>
@@ -73,7 +73,7 @@ export default function CustomSlider() {
           <SwiperSlide style={{ backgroundColor: "transparent", textAlign: "left" }}>
           <Card sx={{minHeight: "250px", maxWidth: { xl :"900px", xs: "500px" }, boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}}>
               <CardContent>
-                <Rating defaultValue={5} sx={{ marginBottom: "15px" }} />
+                <Rating readOnly defaultValue={5} sx={{ marginBottom: "15px" }} />
                 <Typography variant="body1" sx={{ marginBottom: "15px", color: "#828282", fontWeight: "400", lineHeight: "32px" }}>
                   “And residence for met the estimable disposing. Mean if he they been no hold mr.”
                 </Typography>
@@ -87,7 +87,7 @@ export default function CustomSlider() {
           <SwiperSlide style={{ backgroundColor: "transparent", textAlign: "left" }}>
           <Card sx={{minHeight: "250px", maxWidth: { xl :"900px", xs: "500px" }, boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}}>
               <CardContent>
-                <Rating defaultValue={5} sx={{ marginBottom: "15px" }} />
+                <Rating readOnly defaultValue={5} sx={{ marginBottom: "15px" }} />
                 <Typography variant="body1" sx={{ marginBottom: "15px", color: "#828282", fontWeight: "400", lineHeight: "32px" }}>
                   “And residence for met the estimable disposing. Mean if he they been no hold mr.”
                 </Typography>
