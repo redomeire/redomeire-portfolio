@@ -18,6 +18,7 @@ import PersonPinCircleIcon from '@mui/icons-material/PersonPinCircle';
 import styled from "styled-components";
 import CustomButton from "../../components/CustomButton";
 import Footer from "../../components/Footer";
+import React from "react";
 
 const Jumbotron = styled.div`
   background-color: #21a099;
@@ -51,12 +52,22 @@ width: 50%;
 `;
 
 function Contact() {
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [subject, setSubject] = React.useState('');
+  const [message, setMessage] = React.useState('');
+
+  const showMessage = () => {
+    console.log(`${name} ${email} ${subject} ${message}`);
+  }
+
   return (
     <div>
       <ResponsiveAppBar style={{ position: "absolute", top: "0" }} color="white"/>
       <Jumbotron>
         <Box sx={{ margin: "auto", width: "70%" }}>
-          <Typography variant="h4" sx={{ fontWeight: "700", fontFamily: "Source Sans Pro", marginBottom: "20px", marginTop: "150px" }}>Get In Touch</Typography>
+          <Typography sx={{marginTop: "120px"}}>CONTACT ME</Typography>
+          <Typography variant="h4" sx={{ fontWeight: "700", fontFamily: "Source Sans Pro", marginBottom: "20px", marginTop: "20px"}}>Get In Touch</Typography>
           <Typography variant="body2" sx={{ lineHeight: "32px" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </Typography>
         </Box>
       </Jumbotron>
@@ -86,12 +97,12 @@ function Contact() {
         </Box>
         <CustomForm onSubmit={e => e.preventDefault()}>
           <Box display="flex" sx={{ flexDirection: "row", justifyContent: "space-between", width: "100%", marginBottom : "40px" }}>
-            <TextField id="name" label="Your Name" variant="outlined" type="text" required sx={{width: "40%"}}/>
-            <TextField id="email" label="Your Email" variant="outlined" type="email" required  sx={{width: "40%"}}/>
+            <TextField id="name" label="Your Name" variant="outlined" type="text" required sx={{width: "48%"}} onChange={e => setName(e.target.value)}/>
+            <TextField id="email" label="Your Email" variant="outlined" type="email" required  sx={{width: "48%"}} onChange={e => setEmail(e.target.value)}/>
           </Box>
-          <TextField id="subject" label="Your Subject" variant="outlined" type="text" required sx={{marginBottom: "40px"}}/>
-          <TextField id="message" label="Your Message" variant="outlined" type="text" required sx={{marginBottom: "40px"}}/>
-          <CustomButton type="submit" style={{ width: "100%" ,backgroundColor: "#21A099", color: "white", textTransform: "capitalize", padding: "10px", fontFamily: "Inter" }}>Send Message</CustomButton>
+          <TextField id="subject" label="Your Subject" variant="outlined" type="text" required sx={{marginBottom: "40px"}} onChange={e => setSubject(e.target.value)}/>
+          <TextField id="message" label="Your Message" variant="outlined" type="text" required sx={{marginBottom: "40px"}} onChange={e => setMessage(e.target.value)}/>
+          <CustomButton type="submit" style={{ width: "100%" ,backgroundColor: "#21A099", color: "white", textTransform: "capitalize", padding: "10px", fontFamily: "Inter" }} onClick={showMessage}>Send Message</CustomButton>
         </CustomForm>
       </Box>
       <Footer/>
