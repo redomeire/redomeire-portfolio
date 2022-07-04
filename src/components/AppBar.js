@@ -21,17 +21,17 @@ const ResponsiveAppBar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [darken, setDarken] = React.useState(false);
   const pages = [
-    { 
-      name: 'My Journey', 
-      to: "/profile" 
-    }, 
-    { 
-      name: 'Project', 
-      to: "/project" 
-    }, 
-    { 
-      name: 'Contact', 
-      to: "/contact" 
+    {
+      name: 'My Journey',
+      to: "/profile"
+    },
+    {
+      name: 'Project',
+      to: "/project"
+    },
+    {
+      name: 'Contact',
+      to: "/contact"
     }
   ];
 
@@ -55,25 +55,24 @@ const ResponsiveAppBar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' },color: "#21A099", mr: 1 }} /> */}
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontSize: "30px",
-              fontFamily: 'Inter',
-              fontWeight: 700,
-              letterSpacing: '1px',
-              color: '#21A099',
-              textDecoration: 'none',
-            }}
-          >
-            <span style={{ color: "black" }}>RE</span>
-            <span>DO</span>
-          </Typography>
+          <Link to="/" style={{textDecoration: "none"}}>
+            <Typography
+              variant="h6"
+              noWrap
+              sx={{
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontSize: "30px",
+                fontFamily: 'Inter',
+                fontWeight: 700,
+                letterSpacing: '1px',
+                color: '#21A099',
+              }}
+            >
+              <span style={{ color: "black" }}>RE</span>
+              <span>DO</span>
+            </Typography>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, alignItems: "center" }}>
             <CustomDrawer pages={pages} />
@@ -105,7 +104,7 @@ const ResponsiveAppBar = () => {
                 <CustomButton
                   key={page.name}
                   onClick={handleCloseNavMenu}
-                  style={{ transform: "none",boxShadow: "none", color: 'black', display: 'block', fontFamily: "Inter", textTransform: "capitalize", margin: "2px 10px 2px 10px", borderBottom: window.location.pathname === page.to ? "3px solid #ABDDDA" : "" }}
+                  style={{ transform: "none", boxShadow: "none", color: 'black', display: 'block', fontFamily: "Inter", textTransform: "capitalize", margin: "2px 10px 2px 10px", borderBottom: window.location.pathname === page.to ? "3px solid #ABDDDA" : "" }}
                 >
                   {page.name}
                 </CustomButton>

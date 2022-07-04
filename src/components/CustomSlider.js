@@ -1,122 +1,105 @@
-import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import MobileStepper from '@mui/material/MobileStepper';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import SwipeableViews from 'react-swipeable-views';
-import { autoPlay } from 'react-swipeable-views-utils';
-import { ThemeProvider } from '@mui/system';
-import { darkTheme } from './Theme';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-const images = [
-  {
-    label: 'Front End Development',
-    imgPath:
-      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=60',
-  },
-  {
-    label: 'UI/UX Design',
-    imgPath:
-      'https://images.unsplash.com/photo-1621111848501-8d3634f82336?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1930&q=80',
-  },
-];
+import "./style/CustomSlider.css";
 
-function CustomSlider() {
-  const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = images.length;
+// import required modules
+import { Pagination, Navigation } from "swiper";
+import CustomCard from "./CustomCard";
+import React, { useEffect } from "react";
+import { Card, CardContent, Rating, Typography } from "@mui/material";
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
+export default function CustomSlider() {
+  const [direction, setDirection] = React.useState("vertical");
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleStepChange = (step) => {
-    setActiveStep(step);
-  };
+  React.useEffect(() => {
+    window.addEventListener("resize", () => {
+      if(window.innerWidth > 1000)
+        setDirection("horizontal")
+        else
+        setDirection("vertical")
+    })
+  })
 
   return (
-    <ThemeProvider theme={darkTheme}>
-      <Box sx={{ maxWidth: 400, flexGrow: 1}}>
-        <Paper
-          square
-          elevation={0}
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            height: 50,
-            pl: 2,
-            bgcolor: 'background.default',
-          }}
-        >
-          <Typography>{images[activeStep].label}</Typography>
-        </Paper>
-        <AutoPlaySwipeableViews
-          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-          index={activeStep}
-          onChangeIndex={handleStepChange}
-          enableMouseEvents
-        >
-          {images.map((step, index) => (
-            <div key={step.label} style={{backgroundSize: "cover"}}>
-              {Math.abs(activeStep - index) <= 2 ? (
-                <Box
-                  component="img"
-                  sx={{
-                    backgroundSize: 'cover',
-                    display: 'block',
-                    maxWidth: 400,
-                    overflow: 'hidden',
-                    width: '100%',
-                  }}
-                  src={step.imgPath}
-                  alt={step.label}
-                />
-              ) : null}
-            </div>
-          ))}
-        </AutoPlaySwipeableViews>
-        <MobileStepper
-          steps={maxSteps}
-          position="static"
-          activeStep={activeStep}
-          nextButton={
-            <Button
-              size="small"
-              onClick={handleNext}
-              disabled={activeStep === maxSteps - 1}
-            >
-              Next
-              {theme.direction === 'rtl' ? (
-                <KeyboardArrowLeft />
-              ) : (
-                <KeyboardArrowRight />
-              )}
-            </Button>
-          }
-          backButton={
-            <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-              {theme.direction === 'rtl' ? (
-                <KeyboardArrowRight />
-              ) : (
-                <KeyboardArrowLeft />
-              )}
-              Back
-            </Button>
-          }
-        />
-      </Box>
-    </ThemeProvider>
+    <>
+      <Swiper
+        slidesPerView={1}
+        centeredSlides={true}
+        spaceBetween={30}
+        pagination={{
+          clickable: true
+        }}
+        // navigation={true}
+        modules={[Pagination]}
+        className="mySwiper"
+        style={{height: "400px", padding: "30px"}}
+        direction={"vertical"}
+      >
+        {/* <div style={{ width: "120%" }}> */}
+          <SwiperSlide style={{ backgroundColor: "transparent", textAlign: "left"}}>
+          <Card sx={{minHeight: "250px", maxWidth: { xl :"900px", xs: "500px" }, boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}}>
+              <CardContent>
+                <Rating defaultValue={5} sx={{ marginBottom: "15px" }} />
+                <Typography variant="body1" sx={{ marginBottom: "15px", color: "#828282", fontWeight: "400", lineHeight: "32px" }}>
+                  “And residence for met the estimable disposing. Mean if he they been no hold mr.”
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: "500", marginBottom: "5px" }}>
+                  Sabo Masties
+                </Typography>
+                <Typography variant="body2" sx={{color: "#969696", fontFamily: "Inter"}}>Founder at Rolex</Typography>
+              </CardContent>
+            </Card>
+          </SwiperSlide>
+          <SwiperSlide style={{ backgroundColor: "transparent", textAlign: "left" }}>
+          <Card sx={{minHeight: "250px", maxWidth: { xl :"900px", xs: "500px" }, boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}}>
+              <CardContent>
+                <Rating defaultValue={5} sx={{ marginBottom: "15px" }} />
+                <Typography variant="body1" sx={{ marginBottom: "15px", color: "#828282", fontWeight: "400", lineHeight: "32px" }}>
+                “I could not be more thrilled that I ended up deciding on Circle to become the home of the Lightbulb Moment community.”
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: "500", marginBottom: "5px" }}>
+                John Marko
+                </Typography>
+                <Typography variant="body2" sx={{color: "#969696", fontFamily: "Inter"}}>Founder at Migelko</Typography>
+              </CardContent>
+            </Card>
+          </SwiperSlide>
+          <SwiperSlide style={{ backgroundColor: "transparent", textAlign: "left" }}>
+          <Card sx={{minHeight: "250px", maxWidth: { xl :"900px", xs: "500px" }, boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}}>
+              <CardContent>
+                <Rating defaultValue={5} sx={{ marginBottom: "15px" }} />
+                <Typography variant="body1" sx={{ marginBottom: "15px", color: "#828282", fontWeight: "400", lineHeight: "32px" }}>
+                  “And residence for met the estimable disposing. Mean if he they been no hold mr.”
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: "500", marginBottom: "5px" }}>
+                  Sabo Masties
+                </Typography>
+                <Typography variant="body2" sx={{color: "#969696", fontFamily: "Inter"}}>Founder at Rolex</Typography>
+              </CardContent>
+            </Card>
+          </SwiperSlide>
+          <SwiperSlide style={{ backgroundColor: "transparent", textAlign: "left" }}>
+          <Card sx={{minHeight: "250px", maxWidth: { xl :"900px", xs: "500px" }, boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}}>
+              <CardContent>
+                <Rating defaultValue={5} sx={{ marginBottom: "15px" }} />
+                <Typography variant="body1" sx={{ marginBottom: "15px", color: "#828282", fontWeight: "400", lineHeight: "32px" }}>
+                  “And residence for met the estimable disposing. Mean if he they been no hold mr.”
+                </Typography>
+                <Typography variant="body1" sx={{ fontWeight: "500", marginBottom: "5px" }}>
+                  Sabo Masties
+                </Typography>
+                <Typography variant="body2" sx={{color: "#969696", fontFamily: "Inter"}}>Founder at Rolex</Typography>
+              </CardContent>
+            </Card>
+          </SwiperSlide>
+        {/* </div> */}
+      </Swiper>
+    </>
   );
 }
-
-export default CustomSlider;
