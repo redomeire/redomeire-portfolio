@@ -3,7 +3,6 @@ import Navbar from "../../components/Navbar";
 import "../Profile/Profile.css";
 import Education from "../../components/Education";
 import SchoolIcon from '@mui/icons-material/School';
-import WhatIDo from "../../components/WhatIDo";
 import WorkIcon from '@mui/icons-material/Work';
 import Experience from "../../components/Experience";
 import { Container } from "../LandingPage/Landingpage";
@@ -21,21 +20,6 @@ const Jumbotron = styled.div`
     justify-content: space-between;
     width: 100%;
 `;
-
-const DiscoverButton = styled(Button)({
-    color: "white",
-    textTransform: "capitalize",
-    fontSize: "18px",
-    fontFamily: "Inter",
-    backgroundColor: "#21A099",
-    '&:hover': {
-        backgroundColor: "#207A75"
-    },
-    '&:focus': {
-        boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
-        outline: "none"
-    }
-});
 
 function Profile() {
     return (

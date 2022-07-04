@@ -27,7 +27,7 @@ const images = [
   },
 ];
 
-function WhatIDo() {
+function CustomSlider() {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = images.length;
@@ -119,4 +119,4 @@ function WhatIDo() {
   );
 }
 
-export default WhatIDo;
+export default CustomSlider;
