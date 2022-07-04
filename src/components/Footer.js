@@ -21,9 +21,9 @@ const Subcontainer = styled.div`
     // }
 `;
 
-function Footer() {
+function Footer(props) {
     return (
-        <Container>
+        <Container style={props.style}>
             <Subcontainer>
                 <List className="footer-service">
                     <ListItem>

@@ -16,22 +16,22 @@ import CustomButton from './CustomButton';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const ResponsiveAppBar = () => {
+const ResponsiveAppBar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [darken, setDarken] = React.useState(false);
   const pages = [
-    { 
-      name: 'My Journey', 
-      to: "/profile" 
-    }, 
-    { 
-      name: 'Project', 
-      to: "/project" 
-    }, 
-    { 
-      name: 'Contact', 
-      to: "/contact" 
+    {
+      name: 'My Journey',
+      to: "/profile"
+    },
+    {
+      name: 'Project',
+      to: "/project"
+    },
+    {
+      name: 'Contact',
+      to: "/contact"
     }
   ];
 
@@ -51,29 +51,28 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar elevation={0} variant='elevation' position="static" sx={{ backgroundColor: "transparent", padding: { md: "10px 40px 10px 60px", xs: "0" } }}>
+    <AppBar elevation={0} variant='elevation' position="static" sx={{ backgroundColor: "transparent", padding: { md: "10px 40px 10px 60px", xs: "0" }, ...props.style }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' },color: "#21A099", mr: 1 }} /> */}
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontSize: "30px",
-              fontFamily: 'Inter',
-              fontWeight: 700,
-              letterSpacing: '1px',
-              color: '#21A099',
-              textDecoration: 'none',
-            }}
-          >
-            <span style={{ color: "black" }}>RE</span>
-            <span>DO</span>
-          </Typography>
+          <Link to="/" style={{textDecoration: "none"}}>
+            <Typography
+              variant="h6"
+              noWrap
+              sx={{
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontSize: "30px",
+                fontFamily: 'Inter',
+                fontWeight: 700,
+                letterSpacing: '1px',
+                color: '#21A099',
+              }}
+            >
+              <span style={{ color: window.location.pathname === "/contact" ? "white" : "black"}}>RE</span>
+              <span style={{ color: window.location.pathname === "/contact" ? "white" : "#21A099"}}>DO</span>
+            </Typography>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, alignItems: "center" }}>
             <CustomDrawer pages={pages} />
@@ -94,8 +93,8 @@ const ResponsiveAppBar = () => {
                 marginLeft: "20px"
               }}
             >
-              <span style={{ color: "black" }}>RE</span>
-              <span>DO</span>
+              <span style={{ color: window.location.pathname === "/contact" ? "white" : "black"}}>RE</span>
+              <span style={{ color: window.location.pathname === "/contact" ? "white" : "#21A099"}}>DO</span>
             </Typography>
           </Box>
           {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
@@ -105,7 +104,7 @@ const ResponsiveAppBar = () => {
                 <CustomButton
                   key={page.name}
                   onClick={handleCloseNavMenu}
-                  style={{ transform: "none",boxShadow: "none", color: 'black', display: 'block', fontFamily: "Inter", textTransform: "capitalize", margin: "2px 10px 2px 10px", borderBottom: window.location.pathname === page.to ? "3px solid #ABDDDA" : "" }}
+                  style={{ transform: "none", boxShadow: "none", color: props?.color, display: 'block', fontFamily: "Inter", textTransform: "capitalize", margin: "2px 10px 2px 10px", borderBottom: window.location.pathname === page.to ? "3px solid #ABDDDA" : "" }}
                 >
                   {page.name}
                 </CustomButton>

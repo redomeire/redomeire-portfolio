@@ -16,8 +16,8 @@ function App() {
           <Route exact path="/" element={<Landingpage/>}/>
           <Route path="*" element={<PageNotFound value="not found"/>}/>
           <Route path="/profile" element={<PageNotFound value="found"/>}/>
-          <Route path="/project" element={<PageNotFound value="found"/>}/>
-          <Route path="/contact" element={<PageNotFound value="found"/>}/>
+          <Route path="/project" element={<Project/>}/>
+          <Route path="/contact" element={<Contact/>}/>
         </Routes>
       </div>
     </ThemeProvider>

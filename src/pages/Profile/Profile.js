@@ -3,7 +3,6 @@ import Navbar from "../../components/Navbar";
 import "../Profile/Profile.css";
 import Education from "../../components/Education";
 import SchoolIcon from '@mui/icons-material/School';
-import WhatIDo from "../../components/WhatIDo";
 import WorkIcon from '@mui/icons-material/Work';
 import Experience from "../../components/Experience";
 import { Container } from "../LandingPage/Landingpage";
@@ -12,6 +11,7 @@ import styled from "styled-components";
 import TravellingImage from "../../assets/travelling_image.svg";
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import CustomButton from "../../components/CustomButton";
+import Footer from "../../components/Footer";
 
 const Jumbotron = styled.div`
     // background-color: #21A099;
@@ -22,25 +22,10 @@ const Jumbotron = styled.div`
     width: 100%;
 `;
 
-const DiscoverButton = styled(Button)({
-    color: "white",
-    textTransform: "capitalize",
-    fontSize: "18px",
-    fontFamily: "Inter",
-    backgroundColor: "#21A099",
-    '&:hover': {
-        backgroundColor: "#207A75"
-    },
-    '&:focus': {
-        boxShadow: "0 0 0 0.2rem rgba(0,123,255,.5)",
-        outline: "none"
-    }
-});
-
 function Profile() {
     return (
         <div>
-            <ResponsiveAppBar />
+            <ResponsiveAppBar color="black"/>
             <Container style={{ marginTop: "10px" }}>
                 <div className="content-container-profile">
                     <Jumbotron>
@@ -72,6 +57,7 @@ function Profile() {
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#21A099" fill-opacity="1" d="M0,160L80,176C160,192,320,224,480,213.3C640,203,800,149,960,122.7C1120,96,1280,96,1360,96L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg>
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 }

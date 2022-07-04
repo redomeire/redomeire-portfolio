@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import styled from "styled-components";
 
 const StyledButton = styled(Button)`
-  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   transition: box-shadow .15s,transform .15s;
   touch-action: manipulation;
   padding: 14px;
@@ -29,7 +29,7 @@ const StyledButton = styled(Button)`
 };`
 
 function CustomButton(props){
-    return <StyledButton variant={props?.variant} type={props?.type} clr={props.clr} startIcon={props.startIcon} endIcon={props.endIcon} bg={props.bg} style={props.style}>{props.children}</StyledButton>
+    return <StyledButton variant={props?.variant} type={props?.type} clr={props.clr} startIcon={props.startIcon} endIcon={props.endIcon} bg={props.bg} style={props.style} onClick={props.onClick}>{props.children}</StyledButton>
 }
 
 export default CustomButton;

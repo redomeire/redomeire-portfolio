@@ -33,7 +33,7 @@ function Landingpage() {
     const [likedDown, setLikedDown] = useState(false);
     return (
         <div>
-            <ResponsiveAppBar />
+            <ResponsiveAppBar color="black"/>
             <Container>
                 <div className="container">
                     <Typography variant="body1" sx={{ color: "#21A099", fontSize: "18px" }}>
