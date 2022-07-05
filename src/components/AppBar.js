@@ -5,20 +5,14 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import { IconButton, Switch, Tooltip } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
-import AdbIcon from '@mui/icons-material/Adb';
 import CustomDrawer from './CustomDrawer';
 import { Link } from 'react-router-dom';
 import HeroThumbnail from "../assets/hero-thumbnail.svg";
 import CustomButton from './CustomButton';
 
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
 const ResponsiveAppBar = (props) => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [darken, setDarken] = React.useState(false);
   const pages = [
     {
@@ -34,21 +28,6 @@ const ResponsiveAppBar = (props) => {
       to: "/contact"
     }
   ];
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
 
   return (
     <AppBar elevation={0} variant='elevation' position="static" sx={{ backgroundColor: "transparent", padding: { md: "10px 40px 10px 60px", xs: "0" }, ...props.style }}>
@@ -75,7 +54,7 @@ const ResponsiveAppBar = (props) => {
           </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, alignItems: "center" }}>
-            <CustomDrawer pages={pages} />
+            <CustomDrawer pages={pages}/>
             <Typography
               variant="h5"
               noWrap
@@ -103,7 +82,6 @@ const ResponsiveAppBar = (props) => {
               <Link to={page.to} style={{ textDecoration: "none" }} key={page.name}>
                 <CustomButton
                   key={page.name}
-                  onClick={handleCloseNavMenu}
                   style={{ transform: "none", boxShadow: "none", color: props?.color, display: 'block', fontFamily: "Inter", textTransform: "capitalize", margin: "2px 10px 2px 10px", borderBottom: window.location.pathname === page.to ? "3px solid #ABDDDA" : "" }}
                 >
                   {page.name}
@@ -117,32 +95,10 @@ const ResponsiveAppBar = (props) => {
           </div>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, display: { xs: "none", md: "flex" } }}>
+              <IconButton sx={{ p: 0, display: { xs: "none", md: "flex" } }}>
                 <Avatar alt="Remy Sharp" src={HeroThumbnail} />
               </IconButton>
             </Tooltip>
-            {/* <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu> */}
           </Box>
         </Toolbar>
       </Container>

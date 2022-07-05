@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Landingpage/>}/>
           <Route path="*" element={<PageNotFound value="not found"/>}/>
-          <Route path="/profile" element={<PageNotFound value="found"/>}/>
+          <Route path="/profile" element={<Profile/>}/>
           <Route path="/project" element={<Project/>}/>
           <Route path="/contact" element={<Contact/>}/>
         </Routes>
