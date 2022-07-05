@@ -75,7 +75,7 @@ function CustomDrawer(props) {
               onClick={toggleDrawer(anchor, true)}
               color="inherit"
             >
-              <MenuIcon />
+              <MenuIcon  sx={{color: window.location.pathname === "/contact" ? "white" : "black"}}/>
             </IconButton>
           <Drawer
             anchor={anchor}

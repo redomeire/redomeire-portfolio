@@ -14,6 +14,9 @@
 .jumbotron-content-profile {
     width: 100%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .jumbotron-image-profile {
@@ -21,6 +24,10 @@
     display: flex;
     justify-content: center;
     margin-bottom: 40px;
+}
+
+#profile {
+    padding: 10px 40px 10px 90px;
 }
 
 /* .circle-profile {
@@ -62,5 +69,20 @@
 
     .project .content-container .project-container {
         padding-left : 20px;
+    }
+
+    #profile {
+        padding: 10px 30px 10px 30px;
+    }
+}
+
+@media screen and (max-device-width: 500px) {
+    .content-container-profile {
+        align-items: flex-start;
+     }
+
+    .jumbotron-content-profile {
+        align-items: flex-start;
+        text-align: left;
     }
 }

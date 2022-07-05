@@ -9,6 +9,8 @@ import InfoCovidMockup from "../../assets/infocovid_mockup.svg";
 import styled from "styled-components";
 import CustomButton from "../../components/CustomButton";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import ProjectImage from "../../assets/undraw_project.svg";
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
 const CustomCard = styled(Card)({
     boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
@@ -23,13 +25,20 @@ function Project() {
     return (
         <div>
             <ResponsiveAppBar color="black" />
-            <Container style={{ flexDirection: "column" }}>
+            <Container style={{ flexDirection: "column", marginTop: "0"}}>
+                <div className="jumbotron-image-profile">
+                    <img src={ProjectImage} alt="project" width="200" />
+                    <div className="circle-profile" />
+                </div>
                 <Box sx={{ width: { sm: "50%", xs: "100%" }, textAlign: { sm: "center", xs: "left" }, marginBottom: "20px", alignItems: { sm: "center", xs: "flex-start" } }} display="flex" flexDirection="column">
                     <Typography sx={{ color: "#21A099", marginBottom: "10px" }}>PROJECTS</Typography>
-                    <Typography variant="h5" sx={{ lineHeight: "48px", fontSize: "38px", fontWeight: "500", marginBottom: "20px" }}>Here come my <br /> projects</Typography>
-                    <Typography variant="body2" sx={{ color: "#828282", fontFamily: "Inter", lineHeight: "32px" }}>Community development is often linked with community work or community planning, and may involve stakeholders, foundations,</Typography>
+                    <Typography variant="h5" sx={{ lineHeight: "48px", fontSize: "38px", fontWeight: "500", marginBottom: "20px" }}>My projects</Typography>
+                    <Typography variant="body2" sx={{ color: "#828282", fontFamily: "Inter", lineHeight: "32px" }}>Community development is often linked with community work</Typography>
+                    <a style={{textDecoration: "none"}} href="#project">
+                    <CustomButton endIcon={<ArrowDownwardIcon/>} style={{margin: "20px 0 40px 0", backgroundColor: "#21A099", color: "white", padding: "10px 20px 10px 20px", fontFamily: "Source Sans Pro", textTransform: "capitalize"}}>Discover</CustomButton>
+                    </a>
                 </Box>
-                <Box display="flex" flexWrap="wrap" justifyContent="center">
+                <Box display="flex" flexWrap="wrap" justifyContent="center" id="project" sx={{paddingTop: "50px"}}>
                     <CustomCard sx={{ borderRadius: "30px", margin: "20px" }}>
                         <CardMedia
                             component="img"
@@ -79,9 +88,9 @@ function Project() {
                         </CardContent>
                     </CustomCard>
                 </Box>
-                <a href="https://github.com/redomeire" rel="noreferrer" target="_blank" style={{textDecoration: "none"}}>
-                    
-                    <CustomButton style={{ margin: "70px 0 50px 0", backgroundColor: "#21A099", color: "white", textTransform: "capitalize" }} endIcon={<OpenInNewIcon/>}>See More Shots</CustomButton>
+                <a href="https://github.com/redomeire" rel="noreferrer" target="_blank" style={{ textDecoration: "none" }}>
+
+                    <CustomButton style={{ margin: "70px 0 50px 0", backgroundColor: "#21A099", color: "white", textTransform: "capitalize" }} endIcon={<OpenInNewIcon />}>See More Shots</CustomButton>
                 </a>
             </Container>
             <Container style={{ flexDirection: "column" }}>
