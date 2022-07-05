@@ -13,6 +13,7 @@ import styled from "styled-components";
 import CustomButton from "../../components/CustomButton";
 import Footer from "../../components/Footer";
 import React from "react";
+import { submitContactForm } from "../../firebase/request";
 
 const Jumbotron = styled.div`
   background-color: #21a099;
@@ -50,23 +51,36 @@ function Contact() {
   const [email, setEmail] = React.useState('');
   const [subject, setSubject] = React.useState('');
   const [message, setMessage] = React.useState('');
+  const formRef = React.useRef();
 
   const showMessage = () => {
     console.log(`${name} ${email} ${subject} ${message}`);
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    submitContactForm(name, email, subject, message)
+      .then(() => {
+        alert("Your message has been received");
+        formRef.current?.reset();
+      })
+      .catch(() => {
+        alert("Error receiving message");
+      })
+  }
+
   return (
     <div>
-      <ResponsiveAppBar style={{ position: "absolute", top: "0" }} color="white"/>
+      <ResponsiveAppBar style={{ position: "absolute", top: "0" }} color="white" />
       <Jumbotron>
-        <Box sx={{ margin: "auto", width: { sm: "70%", xs: "100%"}, textAlign: { sm: "center", xs: "left"} }}>
-          <Typography sx={{marginTop: "120px"}}>CONTACT ME</Typography>
-          <Typography variant="h4" sx={{ fontWeight: "700", fontFamily: "Source Sans Pro", marginBottom: "20px", marginTop: "20px"}}>Get In Touch</Typography>
+        <Box sx={{ margin: "auto", width: { sm: "70%", xs: "100%" }, textAlign: { sm: "center", xs: "left" } }}>
+          <Typography sx={{ marginTop: "120px" }}>CONTACT ME</Typography>
+          <Typography variant="h4" sx={{ fontWeight: "700", fontFamily: "Source Sans Pro", marginBottom: "20px", marginTop: "20px" }}>Get In Touch</Typography>
           <Typography variant="body2" sx={{ lineHeight: "32px" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </Typography>
         </Box>
       </Jumbotron>
-      <Box display="flex" sx={{ flexDirection: { md: "row", sm: "column", xs: "column"}, padding: {sm: "40px", xs: "10px"}, width: {sm: "70%", xs: "90%"}, marginLeft: "auto", marginRight: "auto", marginTop: "-200px",boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px', backgroundColor: "white", borderRadius: "30px", marginBottom: "100px" }} justifyContent="space-between">
-        <Box sx={{ backgroundColor: "#21A099", color: "white", width: {md: "40%", sm: "100%", xs: "100%"}, borderRadius: "30px", boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px', padding: "30px", overflow: "hidden" }}>
+      <Box display="flex" sx={{ flexDirection: { md: "row", sm: "column", xs: "column" }, padding: { sm: "40px", xs: "10px" }, width: { sm: "70%", xs: "90%" }, marginLeft: "auto", marginRight: "auto", marginTop: "-200px", boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px', backgroundColor: "white", borderRadius: "30px", marginBottom: "100px" }} justifyContent="space-between">
+        <Box sx={{ backgroundColor: "#21A099", color: "white", width: { md: "40%", sm: "100%", xs: "100%" }, borderRadius: "30px", boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px', padding: "30px", overflow: "hidden" }}>
           <Typography variant="h6" sx={{ fontFamily: "Source Sans Pro", fontWeight: "700", marginBottom: "20px" }}>Contact Information</Typography>
           <Typography variant="body2" sx={{ lineHeight: "25px" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </Typography>
           <Box display="flex" alignItems="center" sx={{ marginBottom: "10px", marginTop: "20px" }}>
@@ -89,17 +103,17 @@ function Contact() {
           </Box>
           <Circle />
         </Box>
-        <CustomForm onSubmit={e => e.preventDefault()}>
-          <Box display="flex" sx={{ flexDirection: "row", justifyContent: "space-between", width: "100%", marginBottom : "40px" }}>
-            <TextField id="name" label="Your Name" variant="outlined" type="text" required sx={{width: "48%"}} onChange={e => setName(e.target.value)}/>
-            <TextField id="email" label="Your Email" variant="outlined" type="email" required  sx={{width: "48%"}} onChange={e => setEmail(e.target.value)}/>
+        <CustomForm ref={formRef} onSubmit={handleSubmit}>
+          <Box display="flex" sx={{ flexDirection: "row", justifyContent: "space-between", width: "100%", marginBottom: "40px" }}>
+            <TextField id="name" label="Your Name" variant="outlined" type="text" required sx={{ width: "48%" }} onChange={e => setName(e.target.value)} />
+            <TextField id="email" label="Your Email" variant="outlined" type="email" required sx={{ width: "48%" }} onChange={e => setEmail(e.target.value)} />
           </Box>
-          <TextField id="subject" label="Your Subject" variant="outlined" type="text" required sx={{marginBottom: "40px"}} onChange={e => setSubject(e.target.value)}/>
-          <TextField id="message" label="Your Message" variant="outlined" type="text" required sx={{marginBottom: "40px"}} onChange={e => setMessage(e.target.value)}/>
-          <CustomButton type="submit" style={{ width: "100%" ,backgroundColor: "#21A099", color: "white", textTransform: "capitalize", padding: "10px", fontFamily: "Inter" }} onClick={showMessage}>Send Message</CustomButton>
+          <TextField id="subject" label="Your Subject" variant="outlined" type="text" required sx={{ marginBottom: "40px" }} onChange={e => setSubject(e.target.value)} />
+          <TextField id="message" label="Your Message" variant="outlined" type="text" required sx={{ marginBottom: "40px" }} onChange={e => setMessage(e.target.value)} />
+          <CustomButton type="submit" style={{ width: "100%", backgroundColor: "#21A099", color: "white", textTransform: "capitalize", padding: "10px", fontFamily: "Inter" }} onClick={showMessage}>Send Message</CustomButton>
         </CustomForm>
       </Box>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
