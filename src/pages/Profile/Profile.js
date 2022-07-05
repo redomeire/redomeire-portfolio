@@ -1,5 +1,4 @@
 import { Button, IconButton, Tooltip, Typography } from "@mui/material";
-import Navbar from "../../components/Navbar";
 import "../Profile/Profile.css";
 import Education from "../../components/Education";
 import SchoolIcon from '@mui/icons-material/School';
