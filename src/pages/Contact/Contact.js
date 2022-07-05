@@ -4,13 +4,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { ThemeProvider } from "@mui/material/styles";
-import Navbar from "../../components/Navbar";
 import "./Contact.css";
-import { darkTheme } from "../../components/Theme";
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import Form from "../../components/Form";
-import ButtonAppBar from "../../components/AppBar";
 import ResponsiveAppBar from "../../components/AppBar";
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
 import EmailIcon from '@mui/icons-material/Email';
