@@ -55,6 +55,7 @@ const ResponsiveAppBar = (props) => {
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, alignItems: "center" }}>
             <CustomDrawer pages={pages}/>
+            <Link to="/" style={{textDecoration: "none"}}>
             <Typography
               variant="h5"
               noWrap
@@ -75,6 +76,7 @@ const ResponsiveAppBar = (props) => {
               <span style={{ color: window.location.pathname === "/contact" ? "white" : "black"}}>RE</span>
               <span style={{ color: window.location.pathname === "/contact" ? "white" : "#21A099"}}>DO</span>
             </Typography>
+            </Link>
           </Box>
           {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
