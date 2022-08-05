@@ -82,7 +82,7 @@ function Contact() {
       <Box display="flex" sx={{ flexDirection: { md: "row", sm: "column", xs: "column" }, padding: { sm: "40px", xs: "10px" }, width: { sm: "70%", xs: "90%" }, marginLeft: "auto", marginRight: "auto", marginTop: "-200px", boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px', backgroundColor: "white", borderRadius: "30px", marginBottom: "100px" }} justifyContent="space-between">
         <Box sx={{ backgroundColor: "#21A099", color: "white", width: { md: "40%", sm: "100%", xs: "100%" }, borderRadius: "30px", boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px', padding: "30px", overflow: "hidden" }}>
           <Typography variant="h6" sx={{ fontFamily: "Source Sans Pro", fontWeight: "700", marginBottom: "20px" }}>Contact Information</Typography>
-          <Typography variant="body2" sx={{ lineHeight: "25px" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </Typography>
+          <Typography variant="body2" sx={{ lineHeight: "25px" }}>You can also contact me via these numbers, feel free to tell anything you wanna do</Typography>
           <Box display="flex" alignItems="center" sx={{ marginBottom: "10px", marginTop: "20px" }}>
             <IconButton size="medium">
               <LocalPhoneIcon sx={{ color: "white" }} />
