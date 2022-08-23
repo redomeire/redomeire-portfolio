@@ -2,15 +2,19 @@ import ResponsiveAppBar from "../../components/AppBar";
 import { Container } from "../LandingPage/Landingpage";
 import CustomSlider from "../../components/CustomSlider";
 import "./Project.css";
-import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { Box, Button, Card, CardContent, Typography } from "@mui/material";
 import Footer from "../../components/Footer";
-import AmbisUtbkMockup from "../../assets/Ambis_utbk_mockup.svg";
-import InfoCovidMockup from "../../assets/infocovid_mockup.svg";
 import styled from "styled-components";
 import CustomButton from "../../components/CustomButton";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import ProjectImage from "../../assets/undraw_project.svg";
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import { IKImage } from 'imagekitio-react';
+// firebase
+import { getDocs } from 'firebase/firestore';
+
+import React from "react";
+import { colRef } from "../../firebase/firebase";
 
 const CustomCard = styled(Card)({
     boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
@@ -19,13 +23,37 @@ const CustomCard = styled(Card)({
     '&:hover': {
         boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px'
     }
+});
+
+const ButtonLink = styled(Button)({
+    paddingLeft: '0',
+    color: '#21A099',
+    marginLeft: '-10px',
+    marginTop: '5px'
 })
 
 function Project() {
+    const [projects, setProjects] = React.useState([]);
+
+    React.useEffect(() => {
+        getDocs(colRef)
+            .then(snapshot => {
+                snapshot.docs.forEach(doc => {
+                    // datas.push({ ...doc.data(), id: doc.id });
+                    setProjects((prev) => [...prev, { ...doc.data(), id: doc.id }])
+                })
+                // setProjects(datas);
+                // console.log(projects)
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }, [])
+
     return (
         <div>
             <ResponsiveAppBar color="black" />
-            <Container style={{ flexDirection: "column", marginTop: "0"}}>
+            <Container style={{ flexDirection: "column", marginTop: "0" }}>
                 <div className="jumbotron-image-profile">
                     <img src={ProjectImage} alt="project" width="200" />
                     <div className="circle-profile" />
@@ -34,59 +62,46 @@ function Project() {
                     <Typography sx={{ color: "#21A099", marginBottom: "10px" }}>PROJECTS</Typography>
                     <Typography variant="h5" sx={{ lineHeight: "48px", fontSize: "38px", fontWeight: "500", marginBottom: "20px" }}>My projects</Typography>
                     <Typography variant="body2" sx={{ color: "#828282", fontFamily: "Inter", lineHeight: "32px" }}>Community development is often linked with community work</Typography>
-                    <a style={{textDecoration: "none"}} href="#project">
-                    <CustomButton endIcon={<ArrowDownwardIcon/>} style={{margin: "20px 0 40px 0", backgroundColor: "#21A099", color: "white", padding: "10px 20px 10px 20px", fontFamily: "Source Sans Pro", textTransform: "capitalize"}}>Discover</CustomButton>
+                    <a style={{ textDecoration: "none" }} href="#project">
+                        <CustomButton endIcon={<ArrowDownwardIcon />} style={{ margin: "20px 0 40px 0", backgroundColor: "#21A099", color: "white", padding: "10px 20px 10px 20px", fontFamily: "Source Sans Pro", textTransform: "capitalize" }}>Discover</CustomButton>
                     </a>
                 </Box>
-                <Box display="flex" flexWrap="wrap" justifyContent="center" id="project" sx={{paddingTop: "50px"}}>
-                    <CustomCard sx={{ borderRadius: "30px", margin: "20px" }}>
-                        <CardMedia
-                            component="img"
-                            height="160"
-                            image={AmbisUtbkMockup}
-                            sx={{ opacity: "0.7" }}
-                            alt="paela"
-                        />
-                        <CardContent>
-                            <Typography sx={{ fontWeight: "700", marginBottom: "20px", fontFamily: "Source Sans Pro" }} variant="body1">
-                                Card Title
-                            </Typography>
-                            <Typography variant="body2" sx={{ color: "#828282" }}>
-                                lorem ipsum dolor sit amet constecteur adispliscit elit
-                            </Typography>
-                            <Box>
-                                {/* <Typography>Tech Used :</Typography> */}
-                                <Box display="flex" sx={{ width: "100%" }}>
-                                    <Typography variant="body2" sx={{ margin: "15px 5px 5px 0" }}>Laravel</Typography>
-                                    <Typography variant="body2" sx={{ margin: "15px 5px 5px 5px" }}>React</Typography>
-                                </Box>
-                            </Box>
-                        </CardContent>
-                    </CustomCard>
-                    <CustomCard sx={{ borderRadius: "30px", minWidth: "300px", margin: "20px" }}>
-                        <CardMedia
-                            component="img"
-                            height="160"
-                            image={InfoCovidMockup}
-                            sx={{ opacity: "0.7" }}
-                            alt="paela"
-                        />
-                        <CardContent>
-                            <Typography sx={{ fontWeight: "700", marginBottom: "20px", fontFamily: "Source Sans Pro" }} variant="body1">
-                                Card Title
-                            </Typography>
-                            <Typography variant="body2" sx={{ color: "#828282" }}>
-                                lorem ipsum dolor sit amet constecteur adispliscit elit
-                            </Typography>
-                            <Box>
-                                {/* <Typography>Tech Used :</Typography> */}
-                                <Box display="flex" sx={{ width: "100%" }}>
-                                    <Typography variant="body2" sx={{ margin: "15px 5px 5px 0" }}>Laravel</Typography>
-                                    <Typography variant="body2" sx={{ margin: "15px 5px 5px 5px" }}>React</Typography>
-                                </Box>
-                            </Box>
-                        </CardContent>
-                    </CustomCard>
+                <Box display="flex" flexWrap="wrap" justifyContent="center" id="project" sx={{ paddingTop: "50px" }}>
+                    {
+                        projects.map((project, index) => {
+                            return (
+                                <CustomCard key={index} sx={{ borderRadius: "30px", margin: "20px" }}>
+                                    <IKImage
+                                        // publicKey={process.env.REACT_APP_IMAGEKIT_PUBLIC_KEY}
+                                        urlEndpoint={process.env.REACT_APP_IMAGEKIT_URL_ENDPOINT}
+                                        path={project?.imageUrl}
+                                        style={{width: '100%'}}
+                                    />
+                                    <CardContent>
+                                        <Typography sx={{ fontWeight: "700", marginBottom: "20px", fontFamily: "Source Sans Pro" }} variant="body1">
+                                            {project?.name}
+                                        </Typography>
+                                        <Typography variant="body2" sx={{ color: "#828282" }}>
+                                            {project?.description}
+                                        </Typography>
+                                        <ButtonLink href={project?.url} target="_blank">Visit</ButtonLink>
+                                        <Box>
+                                            {/* <Typography>Tech Used :</Typography> */}
+                                            <Box display="flex" sx={{ width: "100%" }}>
+                                                {
+                                                    project.techStack.map((tech, index) => {
+                                                        return(
+                                                            <Typography key={index} variant="body2" sx={{ margin: "15px 5px 5px 0" }}>{tech}</Typography>
+                                                        );
+                                                    })
+                                                }
+                                            </Box>
+                                        </Box>
+                                    </CardContent>
+                                </CustomCard>
+                            )
+                        })
+                    }
                 </Box>
                 <a href="https://github.com/redomeire" rel="noreferrer" target="_blank" style={{ textDecoration: "none" }}>
 
