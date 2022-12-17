@@ -1,11 +1,16 @@
-import { Avatar, Card, CardActions, CardContent, CardHeader, IconButton, ThemeProvider, Typography } from "@mui/material";
+import { Avatar, Card, CardActions, CardContent, CardHeader, IconButton, ThemeProvider, Typography, useTheme } from "@mui/material";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ShareIcon from '@mui/icons-material/Share';
+import React from "react";
+import { ColorModeContext } from "../App";
 
 function CustomCard(props) {
+    const { isDark } = React.useContext(ColorModeContext);
+    const theme = useTheme();
+
     return (
-        <Card sx={{ maxWidth: {xs: "300", md: "100%"}, opacity: props.opacity, borderRadius: "20px", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;" }}>
+        <Card sx={{ maxWidth: {xs: "300", md: "100%"}, opacity: props.opacity, borderRadius: "20px", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;", backgroundColor: isDark ? theme.palette.primary.light : '' }}>
             <CardHeader
                 avatar={
                     <Avatar sx={{ bgcolor: props.thumbnailColor }} aria-label="recipe">

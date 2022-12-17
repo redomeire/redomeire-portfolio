@@ -7,6 +7,7 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import { IconButton, Switch, Tooltip, useTheme } from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 import CustomDrawer from './CustomDrawer';
 import { Link } from 'react-router-dom';
 import HeroThumbnail from "../assets/hero-thumbnail.svg";
@@ -120,7 +121,12 @@ const ResponsiveAppBar = (props) => {
                 setIsDark(!isDark)
                 window.localStorage.setItem('theme', !isDark ? 'dark' : 'light')
               }} />
-            <Brightness4Icon sx={{ color: isDark ? "black" : "white" }} />
+              {
+                !isDark ? 
+                <DarkModeIcon sx={{ color: isDark ? "white" : isShadowed && theme.palette.primary.main }} />
+                :
+                <Brightness4Icon sx={{ color: 'white' }} />
+              }
           </div>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="">

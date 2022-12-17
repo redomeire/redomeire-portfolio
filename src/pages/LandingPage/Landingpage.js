@@ -1,4 +1,4 @@
-import { Button, TextField, Typography } from "@mui/material";
+import { Button, IconButton, TextField, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import "../../components/style/GLobal.css";
 import "./Landingpage.css";
@@ -8,6 +8,7 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import JumbotronVector from '../../assets/jumbotron-vector.svg';
 import CheckLogo from '../../assets/check-logo.svg';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import LibraryAddCheckOutlinedIcon from '@mui/icons-material/LibraryAddCheckOutlined';
 import CustomCard from "../../components/CustomCard";
 import Statistics from "../../assets/statistic.svg";
 import { darkTheme } from "../../components/Theme";
@@ -54,7 +55,7 @@ function Landingpage() {
                         </Typography>
                         <div className="jumbotron-buttons" style={{ marginTop: "30px" }}>
                             <a style={{ textDecoration: "none" }} href="#about">
-                                <CustomButton bg="#21A099" clr="white" variant="contained" style={{ backgroundColor: "#21A099", color: "white", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", padding: "15px", textTransform: "capitalize" }}>Get Started</CustomButton>
+                                <CustomButton bg="#21A099" clr="white" variant="contained" style={{ backgroundColor: "#21A099", color: isDark ? theme.palette.secondary.main : "white", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", padding: "15px", textTransform: "capitalize" }}>Get Started</CustomButton>
                             </a>
                             <Link to="/project" style={{ textDecoration: "none" }}>
                                 <CustomButton startIcon={<PlayArrowIcon />} variant="outlined" style={{ border: "1px solid #21A099", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", marginLeft: "1rem", padding: "14px", color: "#21A099", textTransform: "capitalize" }}>See My Project</CustomButton>
@@ -116,28 +117,36 @@ function Landingpage() {
                         <div className="service-req-landing">
                             <div>
                                 <div className="service-reg-section-landing">
-                                    <img src={CheckLogo} alt="check-logo" width='24' />
+                                    <IconButton>
+                                        <LibraryAddCheckOutlinedIcon />
+                                    </IconButton>
                                     <p style={{ marginLeft: "10px", fontWeight: "500", color: isDark && theme.palette.secondary.main }}>Front End</p>
                                 </div>
                                 <div className="service-reg-section-landing">
-                                    <img src={CheckLogo} alt="check-logo" width='24' />
+                                    <IconButton>
+                                        <LibraryAddCheckOutlinedIcon />
+                                    </IconButton>
                                     <p style={{ marginLeft: "10px", fontWeight: "500", color: isDark && theme.palette.secondary.main }}>UI/UX</p>
                                 </div>
                             </div>
                             <div style={{ marginLeft: "30px" }}>
                                 <div className="service-reg-section-landing">
-                                    <img src={CheckLogo} alt="check-logo" width='24' style={{ color: 'white' }} />
+                                    <IconButton>
+                                        <LibraryAddCheckOutlinedIcon />
+                                    </IconButton>
                                     <p style={{ marginLeft: "10px", fontWeight: "500", color: isDark && theme.palette.secondary.main }}>Et cetera</p>
                                 </div>
                                 <div className="service-reg-section-landing">
-                                    <img src={CheckLogo} alt="check-logo" width='24' />
+                                    <IconButton>
+                                        <LibraryAddCheckOutlinedIcon />
+                                    </IconButton>
                                     <p style={{ marginLeft: "10px", fontWeight: "500", color: isDark && theme.palette.secondary.main }}>Et Cetera</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </Container>
-                <Container style={{ paddingBottom: "80px" }}>
+                <Container style={{ paddingBottom: "150px" }}>
                     <div className="subscription-landing-page">
                         <Typography variant="h4" sx={{ fontWeight: "600", fontFamily: "Inter", marginBottom: "20px", color: isDark && theme.palette.secondary.main }}>Subscribe to our Newsletter</Typography>
                         <Typography variant="body2" sx={{ color: isDark ? theme.palette.secondary.main : "#828282" }}>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing.</Typography>

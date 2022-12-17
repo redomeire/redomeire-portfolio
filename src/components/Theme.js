@@ -9,6 +9,7 @@ export const getDesignTokens = (mode) => {
                     ? {
                         primary: {
                             main: "rgb(33, 160, 153)",
+                            light: "#2dd4bf",
                             contrastText: '#ffffff'
                         },
                         secondary: {
@@ -32,10 +33,11 @@ export const getDesignTokens = (mode) => {
                     } :
                     {
                         primary: {
-                            main: "#334155"
+                            main: "#334155",
+                            light: "#475569"
                         },
                         secondary: {
-                            main: "#cbd5e1"
+                            main: "#cbd5e1",
                         },
                         success: { 
                             main: "#2e7d32"
