@@ -1,13 +1,16 @@
-import { List, ListItem, ListItemButton, ListItemText, TextField, Typography } from "@mui/material";
+import { List, ListItem, ListItemButton, ListItemText, TextField, Typography, useTheme } from "@mui/material";
 import styled from "styled-components";
 import CustomButton from "./CustomButton";
 import SendIcon from '@mui/icons-material/Send';
+import { useContext } from "react";
+import { ColorModeContext } from "../App";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     color: white;
-    background-color: #21A099;
+    background-color: ${({ color }) => color};
     padding: 30px 40px 30px 40px;
 `;
 
@@ -16,15 +19,20 @@ const Subcontainer = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
+    color: ${({ color }) => color};
     // @media (max-width: 1000px) {
     //     flex-direction: column;
     // }
 `;
 
 function Footer(props) {
+    const { isDark } = useContext(ColorModeContext);
+    const theme = useTheme();
+    const navigate = useNavigate();
+
     return (
-        <Container style={props.style}>
-            <Subcontainer>
+        <Container style={props.style} color={isDark ? theme.palette.primary.light : theme.palette.primary.main}>
+            <Subcontainer color={ isDark && theme.palette.secondary.main }>
                 <List className="footer-service">
                     <ListItem>
                         <Typography variant="h6" sx={{ fontWeight: "600" }}>Service</Typography>
@@ -155,17 +163,14 @@ function Footer(props) {
                     <ListItem>
                         <Typography variant="body2">You'll find your next freelance value you prefer.</Typography>
                     </ListItem>
-                    <form onSubmit={e => e.preventDefault()}>
                     <ListItem>
-                        <TextField required type="email" placeholder="Enter your mail" variant="outlined" color="primary" sx={{ backgroundColor: "white", borderRadius: "5px", outline: "none" }} />
+                        <CustomButton onClick={() => {
+                            navigate('/contact')
+                        }} endIcon={<SendIcon/>} style={{backgroundColor: "white", fontFamily: "Inter", textTransform: "capitalize", color: "black", padding: "10px"}} >Contact Me</CustomButton>
                     </ListItem>
-                    <ListItem>
-                        <CustomButton endIcon={<SendIcon/>} style={{backgroundColor: "white", fontFamily: "Inter", textTransform: "capitalize", color: "black", padding: "10px"}} type="submit">Submit</CustomButton>
-                    </ListItem>
-                    </form>
                 </List>
             </Subcontainer>
-            <Subcontainer style={{marginTop: "50px", padding: "10px 10px 5px 10px", alignItems: "center"}}>
+            <Subcontainer color={isDark && theme.palette.secondary.main} style={{marginTop: "50px", padding: "10px 10px 5px 10px", alignItems: "center"}}>
                 <Typography variant="h6" sx={{fontWeight: "600", fontSize: "30px"}}>REDO</Typography>
                 <Typography variant="body2" sx={{ fontSize: "14px", color: "#FAFAFA"}}>Copyright Redomeire-portfolio.com, All rights reserved.</Typography>
             </Subcontainer>
