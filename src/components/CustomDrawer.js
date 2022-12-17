@@ -10,9 +10,13 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
-import { IconButton, Link } from '@mui/material';
+import { IconButton, Link, useTheme } from '@mui/material';
+import { ColorModeContext } from '../App';
 
 function CustomDrawer(props) {
+  const { isDark, setIsDark } = React.useContext(ColorModeContext);
+  const theme = useTheme();
+
   const [state, setState] = React.useState({
     left: false
   });
@@ -40,7 +44,7 @@ function CustomDrawer(props) {
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
-              <ListItemText>{text.name}</ListItemText>
+              <ListItemText sx={{ color: isDark ? theme.palette.secondary.main : 'black'}}>{text.name}</ListItemText>
             </ListItemButton>
           </ListItem>
           </Link>

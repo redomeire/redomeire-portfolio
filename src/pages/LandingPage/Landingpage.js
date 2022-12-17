@@ -58,7 +58,7 @@ function Landingpage() {
                                 <CustomButton bg="#21A099" clr="white" variant="contained" style={{ backgroundColor: "#21A099", color: isDark ? theme.palette.secondary.main : "white", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", padding: "15px", textTransform: "capitalize" }}>Get Started</CustomButton>
                             </a>
                             <Link to="/project" style={{ textDecoration: "none" }}>
-                                <CustomButton startIcon={<PlayArrowIcon />} variant="outlined" style={{ border: "1px solid #21A099", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", marginLeft: "1rem", padding: "14px", color: "#21A099", textTransform: "capitalize" }}>See My Project</CustomButton>
+                                <CustomButton startIcon={<PlayArrowIcon />} variant="outlined" style={{ border: "1px solid #21A099", fontSize: "12px", fontFamily: "Inter", fontWeight: "400", marginLeft: "1rem", padding: "14px", color: isDark ? theme.palette.secondary.main : "#21A099", textTransform: "capitalize" }}>See My Project</CustomButton>
                             </Link>
                         </div>
                     </div>
