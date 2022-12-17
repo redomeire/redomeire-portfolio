@@ -102,7 +102,8 @@ const ResponsiveAppBar = (props) => {
                 <CustomButton
                   key={page.name}
                   style={{ transform: "none", boxShadow: "none", color: 
-                  !isShadowed && isDark ? theme.palette.secondary.main
+                  window.location.pathname === '/contact' ? '#FFFFFF'
+                  : !isShadowed && isDark ? theme.palette.secondary.main
                   : !isShadowed || !isDark ? 'black'
                   : !isDark ? theme.palette.secondary.main 
                   : theme.palette.secondary.main,
@@ -123,7 +124,7 @@ const ResponsiveAppBar = (props) => {
               }} />
               {
                 !isDark ? 
-                <DarkModeIcon sx={{ color: isDark ? "white" : isShadowed && theme.palette.primary.main }} />
+                <DarkModeIcon sx={{ color: window.location.pathname === '/contact' ? '#FFFFFF' : isDark ? "#FFFFFF" : isShadowed && theme.palette.primary.main }} />
                 :
                 <Brightness4Icon sx={{ color: 'white' }} />
               }
