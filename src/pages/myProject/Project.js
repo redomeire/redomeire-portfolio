@@ -1,9 +1,7 @@
-import ResponsiveAppBar from "../../components/AppBar";
 import { Container } from "../LandingPage/Landingpage";
 import CustomSlider from "../../components/CustomSlider";
 import "./Project.css";
-import { Box, Button, Card, CardContent, Typography } from "@mui/material";
-import Footer from "../../components/Footer";
+import { Box, Button, Card, CardContent, Typography, useTheme } from "@mui/material";
 import styled from "styled-components";
 import CustomButton from "../../components/CustomButton";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
@@ -15,15 +13,18 @@ import { getDocs } from 'firebase/firestore';
 
 import React from "react";
 import { colRef } from "../../firebase/firebase";
+import AppLayout from "../../components/layout/AppLayout";
+import { ColorModeContext } from "../../App";
 
-const CustomCard = styled(Card)({
-    boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
-    cursor: 'pointer',
-    maxWidth: '300px',
-    '&:hover': {
-        boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px'
+const CustomCard = styled(Card)`
+    background-color: ${({ backgroundColor }) => backgroundColor};
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    cursor: pointer;
+    max-width: 300px;
+    &:hover: {
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     }
-});
+`
 
 const ButtonLink = styled(Button)({
     paddingLeft: '0',
@@ -34,6 +35,9 @@ const ButtonLink = styled(Button)({
 
 function Project() {
     const [projects, setProjects] = React.useState([]);
+    const { isDark } = React.useContext(ColorModeContext);
+
+    const theme = useTheme();
 
     React.useEffect(() => {
         getDocs(colRef)
@@ -51,8 +55,7 @@ function Project() {
     }, [])
 
     return (
-        <div>
-            <ResponsiveAppBar color="black" />
+        <AppLayout>
             <Container style={{ flexDirection: "column", marginTop: "0" }}>
                 <div className="jumbotron-image-profile">
                     <img src={ProjectImage} alt="project" width="200" />
@@ -60,28 +63,32 @@ function Project() {
                 </div>
                 <Box sx={{ width: { sm: "50%", xs: "100%" }, textAlign: { sm: "center", xs: "left" }, marginBottom: "20px", alignItems: { sm: "center", xs: "flex-start" } }} display="flex" flexDirection="column">
                     <Typography sx={{ color: "#21A099", marginBottom: "10px" }}>PROJECTS</Typography>
-                    <Typography variant="h5" sx={{ lineHeight: "48px", fontSize: "38px", fontWeight: "500", marginBottom: "20px" }}>My projects</Typography>
-                    <Typography variant="body2" sx={{ color: "#828282", fontFamily: "Inter", lineHeight: "32px" }}>Community development is often linked with community work</Typography>
+                    <Typography variant="h5" sx={{ lineHeight: "48px", fontSize: "38px", fontWeight: "500", marginBottom: "20px", color: isDark ? theme.palette.secondary.main : 'black' }}>My projects</Typography>
+                    <Typography variant="body2" sx={{ color: isDark ? theme.palette.secondary.main : '#828282', fontFamily: "Inter", lineHeight: "32px" }}>Community development is often linked with community work</Typography>
                     <a style={{ textDecoration: "none" }} href="#project">
-                        <CustomButton endIcon={<ArrowDownwardIcon />} style={{ margin: "20px 0 40px 0", backgroundColor: "#21A099", color: "white", padding: "10px 20px 10px 20px", fontFamily: "Source Sans Pro", textTransform: "capitalize" }}>Discover</CustomButton>
+                        <CustomButton endIcon={<ArrowDownwardIcon />} style={{ margin: "20px 0 40px 0", backgroundColor: "#21A099", color: "white", padding: "10px 20px 10px 20px", fontFamily: "Source Sans Pro", textTransform: "capitalize", color: isDark ? theme.palette.secondary.main : 'white' }}>Discover</CustomButton>
                     </a>
                 </Box>
                 <Box display="flex" flexWrap="wrap" justifyContent="center" id="project" sx={{ paddingTop: "50px" }}>
                     {
                         projects.map((project, index) => {
                             return (
-                                <CustomCard key={index} sx={{ borderRadius: "30px", margin: "20px" }}>
-                                    <IKImage
+                                <CustomCard
+                                key={index}
+                                backgroundColor={isDark ? theme.palette.primary.light : 
+                                'white'}
+                                sx={{ borderRadius: "30px", margin: "20px" }}>
+                                    {/* <IKImage
                                         // publicKey={process.env.REACT_APP_IMAGEKIT_PUBLIC_KEY}
                                         urlEndpoint={process.env.REACT_APP_IMAGEKIT_URL_ENDPOINT}
                                         path={project?.imageUrl}
                                         style={{width: '100%'}}
-                                    />
+                                    /> */}
                                     <CardContent>
                                         <Typography sx={{ fontWeight: "700", marginBottom: "20px", fontFamily: "Source Sans Pro" }} variant="body1">
                                             {project?.name}
                                         </Typography>
-                                        <Typography variant="body2" sx={{ color: "#828282" }}>
+                                        <Typography variant="body2" sx={{ color: isDark ? theme.palette.secondary.main : "#828282" }}>
                                             {project?.description}
                                         </Typography>
                                         <ButtonLink href={project?.url} target="_blank">Visit</ButtonLink>
@@ -108,16 +115,15 @@ function Project() {
                     <CustomButton style={{ margin: "70px 0 50px 0", backgroundColor: "#21A099", color: "white", textTransform: "capitalize" }} endIcon={<OpenInNewIcon />}>See More Shots</CustomButton>
                 </a>
             </Container>
-            <Container style={{ flexDirection: "column" }}>
+            <Container style={{ flexDirection: "column", paddingBottom: '100px' }}>
                 <Box sx={{ width: { sm: "50%", xs: "100%" }, textAlign: { sm: "center", xs: "left" }, marginBottom: "20px", alignItems: { sm: "center", xs: "flex-start" } }} display="flex" flexDirection="column">
                     <Typography sx={{ color: "#21A099", marginBottom: "10px" }}>TESTIMONIALS</Typography>
-                    <Typography variant="h5" sx={{ lineHeight: "48px", fontSize: "38px", fontWeight: "500", marginBottom: "20px" }}>What my trusted <br /> client say</Typography>
-                    <Typography variant="body2" sx={{ color: "#828282", fontFamily: "Inter", lineHeight: "32px" }}>Community development is often linked with community work or community planning, and may involve stakeholders, foundations,</Typography>
+                    <Typography variant="h5" sx={{ lineHeight: "48px", fontSize: "38px", fontWeight: "500", marginBottom: "20px", color: isDark ? theme.palette.secondary.main : 'black' }}>What my trusted <br /> client say</Typography>
+                    <Typography variant="body2" sx={{ fontFamily: "Inter", lineHeight: "32px", color: isDark ? theme.palette.secondary.main : '#828282' }}>Community development is often linked with community work or community planning, and may involve stakeholders, foundations,</Typography>
                 </Box>
                 <CustomSlider />
             </Container>
-            <Footer style={{ marginTop: "40px" }} />
-        </div>
+        </AppLayout>
     );
 }
 
