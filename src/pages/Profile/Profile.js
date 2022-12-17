@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, Typography } from "@mui/material";
+import { Box, Card, CardContent, Typography, useTheme } from "@mui/material";
 import "../Profile/Profile.css";
 import { Container } from "../LandingPage/Landingpage";
 import ResponsiveAppBar from "../../components/AppBar";
@@ -8,6 +8,9 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import CustomButton from "../../components/CustomButton";
 import Footer from "../../components/Footer";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import AppLayout from "../../components/layout/AppLayout";
+import { useContext } from "react";
+import { ColorModeContext } from "../../App";
 
 const Jumbotron = styled.div`
     // background-color: #21A099;
@@ -23,6 +26,8 @@ const EducationCard = styled(Card)`
     border-radius: 10px;
     width: 70%;
     margin: 20px 0;
+    background-color: ${({ backgroundColor }) => backgroundColor};
+    color: ${({color}) => color};
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     @media (max-width: 900px) {
         width: 100%;
@@ -54,18 +59,20 @@ const experienceData = [
 ];
 
 function Profile() {
+    const { isDark } = useContext(ColorModeContext);
+    const theme = useTheme();
+    
     return (
-        <div>
-            <ResponsiveAppBar color="black" />
-            <Container style={{ marginTop: "10px" }}>
+        <AppLayout>
+            <Container>
                 <div className="content-container-profile">
                     <Jumbotron style={{textAlign: "left"}}>
                         <div className="jumbotron-content-profile">
                             <Typography variant="body1" sx={{ color: "#21A099", marginBottom: "10px" }}>
                                 MY JOURNEY
                             </Typography>
-                            <Typography variant="h5" sx={{ lineHeight: "48px", fontSize: "38px", fontWeight: "500", marginBottom: "20px" }}>My Journey</Typography>
-                            <Typography variant="body2" sx={{ color: "#828282", width: {sm: "50%", xs: "100%"}, fontFamily: "Inter", lineHeight: "32px" }}>Sometimes journey brought us to unexpected situations. And that's what make journey tasted really challenging </Typography>
+                            <Typography variant="h5" sx={{ lineHeight: "48px", fontSize: "38px", fontWeight: "500", marginBottom: "20px", color: isDark ? theme.palette.secondary.main : 'black' }}>My Journey</Typography>
+                            <Typography variant="body2" sx={{ color: isDark ? theme.palette.secondary.main : '#828282', width: {sm: "50%", xs: "100%"}, fontFamily: "Inter", lineHeight: "32px" }}>Sometimes journey brought us to unexpected situations. And that's what make journey tasted really challenging </Typography>
                         </div>
                         <div className="jumbotron-image-profile">
                             <img src={TravellingImage} alt="travelling" width="300" />
@@ -73,7 +80,7 @@ function Profile() {
                         </div>
                     </Jumbotron>
                     <a href="#profile" style={{ textDecoration: "none" }}>
-                        <CustomButton variant="contained" style={{ backgroundColor: "#21A099", color: "white", marginTop: "20px", textTransform: "capitalize", fontFamily: "Source Sans Pro", padding: "10px" }} endIcon={<ArrowDownwardIcon />}>Discover</CustomButton>
+                        <CustomButton variant="contained" style={{ backgroundColor: "#21A099", color: isDark ? theme.palette.secondary.main : 'white', marginTop: "20px", textTransform: "capitalize", fontFamily: "Source Sans Pro", padding: "10px" }} endIcon={<ArrowDownwardIcon />}>Discover</CustomButton>
                     </a>
                 </div>
             </Container>
@@ -93,7 +100,10 @@ function Profile() {
                     {
                         experienceData.map(item => {
                             return (
-                                <EducationCard key={item.id}>
+                                <EducationCard 
+                                color={isDark ? theme.palette.secondary.main : 'black'}
+                                backgroundColor={isDark ? theme.palette.primary.main : 'white'}
+                                key={item.id}>
                                     <Box display="flex" alignItems="center">
                                         <Typography variant="h6" color="#21A099">
                                             {item.title}
@@ -118,8 +128,7 @@ function Profile() {
                     </a>
                 </Box>
             </div>
-            <Footer />
-        </div>
+        </AppLayout>
     );
 }
 
