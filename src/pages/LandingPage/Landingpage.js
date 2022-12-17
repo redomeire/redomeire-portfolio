@@ -1,23 +1,21 @@
-import { Button, IconButton, TextField, Typography } from "@mui/material";
+import { Box, Button, IconButton, TextField, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import "../../components/style/GLobal.css";
 import "./Landingpage.css";
-import ResponsiveAppBar from "../../components/AppBar";
 import styled from "styled-components";
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import JumbotronVector from '../../assets/jumbotron-vector.svg';
-import CheckLogo from '../../assets/check-logo.svg';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import LibraryAddCheckOutlinedIcon from '@mui/icons-material/LibraryAddCheckOutlined';
 import CustomCard from "../../components/CustomCard";
 import Statistics from "../../assets/statistic.svg";
 import { darkTheme } from "../../components/Theme";
 import React, { useState } from "react";
-import Footer from "../../components/Footer";
 import { Link } from "react-router-dom";
 import CustomButton from "../../components/CustomButton";
 import AppLayout from "../../components/layout/AppLayout";
 import { ColorModeContext } from "../../App";
+import { TypeAnimation } from "react-type-animation";
 
 export const Container = styled.div`
     display: flex;
@@ -48,7 +46,23 @@ function Landingpage() {
                             INTRODUCTION
                         </Typography>
                         <Typography variant="h3" sx={{ fontFamily: "Source Sans Pro", fontSize: { s: "20px", md: "64px" }, marginTop: "20px", fontWeight: "700", lineHeight: { s: "50px", md: "74px" }, color: isDark ? theme.palette.secondary.main : '' }}>
-                            Hello there ! <br /> I am <span style={{ color: "#21A099" }}>Redomeire</span>
+                            Hello there ! <br />
+                            <Box display='flex' alignItems='center' flexWrap='wrap'>
+                            <Typography variant="h3" sx={{ fontWeight: '700', fontSize: { s: "20px", md: "64px" }, marginRight: '10px' }}>I'm </Typography>
+                            <TypeAnimation
+                            sequence={[
+                                'Redomeire',
+                                2000,
+                                'Front End Engineer',
+                                2000,
+                                'IT Enthusiast',
+                                2000,
+                            ]}
+                            cursor={true}
+                            repeat={Infinity}
+                            style={{ fontFamily: 'Source Sans Pro', color: "#21A099" }}
+                        />
+                        </Box>
                         </Typography>
                         <Typography sx={{ marginTop: "30px", lineHeight: "32px", color: isDark ? theme.palette.secondary.main : "#828282" }}>
                             Yet preference connection unpleasant yet melancholy but end appearance. And excellence partiality estimating terminated day everything.
