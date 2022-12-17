@@ -15,6 +15,7 @@ import React from "react";
 import { colRef } from "../../firebase/firebase";
 import AppLayout from "../../components/layout/AppLayout";
 import { ColorModeContext } from "../../App";
+import Popup from "../../components/project/Popup";
 
 const CustomCard = styled(Card)`
     background-color: ${({ backgroundColor }) => backgroundColor};
@@ -35,6 +36,10 @@ const ButtonLink = styled(Button)({
 
 function Project() {
     const [projects, setProjects] = React.useState([]);
+    const [id, setId] = React.useState({
+        isOpen: false,
+        id: ''
+    });
     const { isDark } = React.useContext(ColorModeContext);
 
     const theme = useTheme();
@@ -73,39 +78,50 @@ function Project() {
                     {
                         projects.map((project, index) => {
                             return (
-                                <CustomCard
-                                key={index}
-                                backgroundColor={isDark ? theme.palette.primary.light : 
-                                'white'}
-                                sx={{ borderRadius: "30px", margin: "20px" }}>
-                                    {/* <IKImage
+                                <>
+                                    <Popup id={id} setId={setId} project={project} />
+                                    <CustomCard
+                                        key={index}
+                                        backgroundColor={isDark ? theme.palette.primary.light :
+                                            'white'}
+                                        sx={{ borderRadius: "30px", margin: "20px", minWidth: '300px' }}>
+                                        {/* <IKImage
                                         // publicKey={process.env.REACT_APP_IMAGEKIT_PUBLIC_KEY}
                                         urlEndpoint={process.env.REACT_APP_IMAGEKIT_URL_ENDPOINT}
                                         path={project?.imageUrl}
-                                        style={{width: '100%'}}
+                                        style={{width: '100%', maxHeight: '100px'}}
                                     /> */}
-                                    <CardContent>
-                                        <Typography sx={{ fontWeight: "700", marginBottom: "20px", fontFamily: "Source Sans Pro" }} variant="body1">
-                                            {project?.name}
-                                        </Typography>
-                                        <Typography variant="body2" sx={{ color: isDark ? theme.palette.secondary.main : "#828282" }}>
+                                        <div
+                                            style={{
+                                                backgroundImage: `url(${process.env.REACT_APP_IMAGEKIT_URL_ENDPOINT + project?.imageUrl})`,
+                                                backgroundSize: 'cover',
+                                                width: '100%',
+                                                minHeight: '200px'
+                                            }}
+                                        />
+                                        <CardContent>
+                                            <Typography sx={{ fontWeight: "700", marginBottom: "20px", fontFamily: "Source Sans Pro" }} variant="body1">
+                                                {project?.name}
+                                            </Typography>
+                                            {/* <Typography variant="body2" sx={{ color: isDark ? theme.palette.secondary.main : "#828282" }}>
                                             {project?.description}
-                                        </Typography>
-                                        <ButtonLink href={project?.url} target="_blank">Visit</ButtonLink>
-                                        <Box>
-                                            {/* <Typography>Tech Used :</Typography> */}
-                                            <Box display="flex" sx={{ width: "100%" }}>
-                                                {
-                                                    project.techStack.map((tech, index) => {
-                                                        return(
-                                                            <Typography key={index} variant="body2" sx={{ margin: "15px 5px 5px 0" }}>{tech}</Typography>
-                                                        );
-                                                    })
-                                                }
+                                        </Typography> */}
+                                            <ButtonLink target="_blank" onClick={() => setId({ isOpen: true, id: project.id })}>Open</ButtonLink>
+                                            <Box>
+                                                {/* <Typography>Tech Used :</Typography> */}
+                                                <Box display="flex" sx={{ width: "100%" }}>
+                                                    {
+                                                        project.techStack.map((tech, index) => {
+                                                            return (
+                                                                <Typography key={index} variant="body2" sx={{ margin: "15px 5px 5px 0" }}>{tech}</Typography>
+                                                            );
+                                                        })
+                                                    }
+                                                </Box>
                                             </Box>
-                                        </Box>
-                                    </CardContent>
-                                </CustomCard>
+                                        </CardContent>
+                                    </CustomCard>
+                                </>
                             )
                         })
                     }
