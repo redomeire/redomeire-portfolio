@@ -14,7 +14,7 @@ import { IconButton, Link, useTheme } from '@mui/material';
 import { ColorModeContext } from '../App';
 
 function CustomDrawer(props) {
-  const { isDark, setIsDark } = React.useContext(ColorModeContext);
+  const { isDark } = React.useContext(ColorModeContext);
   const theme = useTheme();
 
   const [state, setState] = React.useState({
@@ -79,7 +79,7 @@ function CustomDrawer(props) {
               onClick={toggleDrawer(anchor, true)}
               color="inherit"
             >
-              <MenuIcon  sx={{color: window.location.pathname === "/contact" ? "white" : "black"}}/>
+              <MenuIcon  sx={{color: window.location.pathname === "/contact" || isDark ? "white" : "black"}}/>
             </IconButton>
           <Drawer
             anchor={anchor}
