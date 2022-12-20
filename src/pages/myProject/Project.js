@@ -1,13 +1,12 @@
 import { Container } from "../LandingPage/Landingpage";
 import CustomSlider from "../../components/CustomSlider";
 import "./Project.css";
-import { Box, Button, Card, CardContent, Typography, useTheme } from "@mui/material";
+import { Box, Button, Card, CardContent, Skeleton, Typography, useTheme } from "@mui/material";
 import styled from "styled-components";
 import CustomButton from "../../components/CustomButton";
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import ProjectImage from "../../assets/undraw_project.svg";
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import { IKImage } from 'imagekitio-react';
 // firebase
 import { getDocs } from 'firebase/firestore';
 
@@ -71,59 +70,103 @@ function Project() {
                     <Typography variant="h5" sx={{ lineHeight: "48px", fontSize: "38px", fontWeight: "500", marginBottom: "20px", color: isDark ? theme.palette.secondary.main : 'black' }}>My projects</Typography>
                     <Typography variant="body2" sx={{ color: isDark ? theme.palette.secondary.main : '#828282', fontFamily: "Inter", lineHeight: "32px" }}>Community development is often linked with community work</Typography>
                     <a style={{ textDecoration: "none" }} href="#project">
-                        <CustomButton endIcon={<ArrowDownwardIcon />} style={{ margin: "20px 0 40px 0", backgroundColor: "#21A099", color: "white", padding: "10px 20px 10px 20px", fontFamily: "Source Sans Pro", textTransform: "capitalize", color: isDark ? theme.palette.secondary.main : 'white' }}>Discover</CustomButton>
+                        <CustomButton endIcon={<ArrowDownwardIcon />} style={{ margin: "20px 0 40px 0", backgroundColor: "#21A099", padding: "10px 20px 10px 20px", fontFamily: "Source Sans Pro", textTransform: "capitalize", color: isDark ? theme.palette.secondary.main : 'white' }}>Discover</CustomButton>
                     </a>
                 </Box>
                 <Box display="flex" flexWrap="wrap" justifyContent="center" id="project" sx={{ paddingTop: "50px" }}>
                     {
-                        projects.map((project, index) => {
-                            return (
-                                <>
-                                    <Popup id={id} setId={setId} project={project} />
-                                    <CustomCard
-                                        key={index}
-                                        backgroundColor={isDark ? theme.palette.primary.light :
-                                            'white'}
-                                        sx={{ borderRadius: "30px", margin: "20px", minWidth: '300px' }}>
-                                        {/* <IKImage
+                        projects.length !== 0 ?
+                            projects.map((project, index) => {
+                                return (
+                                    <>
+                                        <Popup id={id} setId={setId} project={project} />
+                                        <CustomCard
+                                            key={index}
+                                            backgroundColor={isDark ? theme.palette.primary.light :
+                                                'white'}
+                                            sx={{ borderRadius: "30px", margin: "20px", minWidth: '300px' }}>
+                                            {/* <IKImage
                                         // publicKey={process.env.REACT_APP_IMAGEKIT_PUBLIC_KEY}
                                         urlEndpoint={process.env.REACT_APP_IMAGEKIT_URL_ENDPOINT}
                                         path={project?.imageUrl}
                                         style={{width: '100%', maxHeight: '100px'}}
                                     /> */}
-                                        <div
-                                            style={{
-                                                backgroundImage: `url(${process.env.REACT_APP_IMAGEKIT_URL_ENDPOINT + project?.imageUrl})`,
-                                                backgroundSize: 'cover',
-                                                width: '100%',
-                                                minHeight: '200px'
-                                            }}
-                                        />
-                                        <CardContent>
-                                            <Typography sx={{ fontWeight: "700", marginBottom: "20px", fontFamily: "Source Sans Pro" }} variant="body1">
-                                                {project?.name}
-                                            </Typography>
-                                            {/* <Typography variant="body2" sx={{ color: isDark ? theme.palette.secondary.main : "#828282" }}>
+                                            <div
+                                                style={{
+                                                    backgroundImage: `url(${process.env.REACT_APP_IMAGEKIT_URL_ENDPOINT + project?.imageUrl})`,
+                                                    backgroundSize: 'cover',
+                                                    width: '100%',
+                                                    minHeight: '200px'
+                                                }}
+                                            />
+                                            <CardContent>
+                                                <Typography sx={{ fontWeight: "700", marginBottom: "20px", fontFamily: "Source Sans Pro" }} variant="body1">
+                                                    {project?.name}
+                                                </Typography>
+                                                {/* <Typography variant="body2" sx={{ color: isDark ? theme.palette.secondary.main : "#828282" }}>
                                             {project?.description}
                                         </Typography> */}
-                                            <ButtonLink target="_blank" onClick={() => setId({ isOpen: true, id: project.id })}>Open</ButtonLink>
-                                            <Box>
-                                                {/* <Typography>Tech Used :</Typography> */}
-                                                <Box display="flex" sx={{ width: "100%" }}>
-                                                    {
-                                                        project.techStack.map((tech, index) => {
-                                                            return (
-                                                                <Typography key={index} variant="body2" sx={{ margin: "15px 5px 5px 0" }}>{tech}</Typography>
-                                                            );
-                                                        })
-                                                    }
+                                                <ButtonLink target="_blank" onClick={() => setId({ isOpen: true, id: project.id })}>Open</ButtonLink>
+                                                <Box>
+                                                    {/* <Typography>Tech Used :</Typography> */}
+                                                    <Box display="flex" sx={{ width: "100%" }}>
+                                                        {
+                                                            project.techStack.map((tech, index) => {
+                                                                return (
+                                                                    <Typography key={index} variant="body2" sx={{ margin: "15px 5px 5px 0" }}>{tech}</Typography>
+                                                                );
+                                                            })
+                                                        }
+                                                    </Box>
                                                 </Box>
-                                            </Box>
-                                        </CardContent>
-                                    </CustomCard>
-                                </>
-                            )
-                        })
+                                            </CardContent>
+                                        </CustomCard>
+                                    </>
+                                )
+                            })
+                            :
+                            <>
+                            <CustomCard style={{ margin: '15px' }} backgroundColor={ isDark ? '#404258' : 'white' }>
+                                <Box display="flex" flexDirection="column" boxShadow={"revert"}>
+                                    <Skeleton sx={{ borderTopLeftRadius: '10px', borderTopRightRadius: '10px', width: { sm: '300px', xs: '250px' } }} variant="rectangular" height={180} />
+                                    <Box sx={{ pt: 0.5, padding: '10px' }}>
+                                        <Skeleton width="40%" sx={{ marginTop: '10px' }} />
+                                        <Skeleton width="20%" sx={{ marginTop: '10px' }} />
+                                        <Skeleton width="60%" sx={{ marginTop: '15px' }} />
+                                    </Box>
+                                </Box>
+                            </CustomCard>
+                            <CustomCard style={{ margin: '15px' }} backgroundColor={ isDark ? '#404258' : 'white' }>
+                                <Box display="flex" flexDirection="column" boxShadow={"revert"}>
+                                    <Skeleton sx={{ borderTopLeftRadius: '10px', borderTopRightRadius: '10px', width: { sm: '300px', xs: '250px' } }} variant="rectangular" height={180} />
+                                    <Box sx={{ pt: 0.5, padding: '10px' }}>
+                                        <Skeleton width="40%" sx={{ marginTop: '10px' }} />
+                                        <Skeleton width="20%" sx={{ marginTop: '10px' }} />
+                                        <Skeleton width="60%" sx={{ marginTop: '15px' }} />
+                                    </Box>
+                                </Box>
+                            </CustomCard>
+                            <CustomCard style={{ margin: '15px' }} backgroundColor={ isDark ? '#404258' : 'white' }>
+                                <Box display="flex" flexDirection="column" boxShadow={"revert"}>
+                                    <Skeleton sx={{ borderTopLeftRadius: '10px', borderTopRightRadius: '10px', width: { sm: '300px', xs: '250px' } }} variant="rectangular" height={180} />
+                                    <Box sx={{ pt: 0.5, padding: '10px' }}>
+                                        <Skeleton width="40%" sx={{ marginTop: '10px' }} />
+                                        <Skeleton width="20%" sx={{ marginTop: '10px' }} />
+                                        <Skeleton width="60%" sx={{ marginTop: '15px' }} />
+                                    </Box>
+                                </Box>
+                            </CustomCard>
+                            <CustomCard style={{ margin: '15px' }} backgroundColor={ isDark ? '#404258' : 'white' }>
+                                <Box display="flex" flexDirection="column" boxShadow={"revert"}>
+                                    <Skeleton sx={{ borderTopLeftRadius: '10px', borderTopRightRadius: '10px', width: { sm: '300px', xs: '250px' } }} variant="rectangular" height={180} />
+                                    <Box sx={{ pt: 0.5, padding: '10px' }}>
+                                        <Skeleton width="40%" sx={{ marginTop: '10px' }} />
+                                        <Skeleton width="20%" sx={{ marginTop: '10px' }} />
+                                        <Skeleton width="60%" sx={{ marginTop: '15px' }} />
+                                    </Box>
+                                </Box>
+                            </CustomCard>
+                            </>
                     }
                 </Box>
                 <a href="https://github.com/redomeire" rel="noreferrer" target="_blank" style={{ textDecoration: "none" }}>
