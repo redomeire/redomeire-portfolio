@@ -8,6 +8,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { getDesignTokens} from './components/Theme';
 import PageNotFound from './components/PageNotFound';
 import React from 'react';
+import ProjectDetail from './pages/myProject/ProjectDetail';
 
 export const ColorModeContext = React.createContext({
   isDark: false,
@@ -31,6 +32,7 @@ function App() {
           <Route path="*" element={<PageNotFound value="not found" />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/project" element={<Project />} />
+          <Route path='/project/:id' element={<ProjectDetail/>}/>
           <Route path="/contact" element={<Contact />} />
         </Routes>
         </ColorModeContext.Provider>
