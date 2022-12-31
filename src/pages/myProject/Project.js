@@ -103,10 +103,10 @@ function Project() {
                                                 <Typography sx={{ fontWeight: "700", marginBottom: "20px", fontFamily: "Source Sans Pro" }} variant="body1">
                                                     {project?.name}
                                                 </Typography>
-                                                {/* <Typography variant="body2" sx={{ color: isDark ? theme.palette.secondary.main : "#828282" }}>
-                                            {project?.description}
-                                        </Typography> */}
-                                                <ButtonLink target="_blank" onClick={() => setId({ isOpen: true, id: project.id })}>Open</ButtonLink>
+                                                <Typography variant="body2" sx={{ color: isDark ? theme.palette.secondary.main : "#828282" }}>
+                                                {project?.description.substring(0,60)} {project?.description.length > 60 && '...'}
+                                        </Typography>
+                                                <ButtonLink target="_blank" href={`/project/${project.id}`}>Open</ButtonLink>
                                                 <Box>
                                                     {/* <Typography>Tech Used :</Typography> */}
                                                     <Box display="flex" sx={{ width: "100%" }}>
