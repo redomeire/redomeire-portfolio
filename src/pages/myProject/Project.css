@@ -1,9 +1,0 @@
-.project-container {
-    padding: 0 40px 40px 40px;
-}
-
-@media screen and (max-device-width: 1000px){
-    .project-container {
-        padding: 40px;
-    }
-}
