@@ -10,7 +10,7 @@ palette:
 
 const theme = createTheme({
   typography: {
-    fontFamily: `"Inter", "sans-serif"`,
+    fontFamily: `"Poppins", "sans-serif"`,
   },
 });
 
