@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <main>
-      <p>halo dek 12345</p>
+      <p>halo dek 1234</p>
     </main>
   );
 }

@@ -1,5 +1,6 @@
 import { getDoc } from "firebase/firestore";
-import { colRef } from "src/firebase/firebase";
+
+import { colRef } from "@/firebase/firebase";
 
 const getProjects = async () => {
   const docSnap = await getDoc(colRef);
